@@ -640,6 +640,16 @@ widget = {
 					fontsize_min = 8
 					position = { 595 33 }
 					# position = { 658 33 }
+					text = "bm_2754_rohan_years"
+					align = nobaseline
+					fontsize = 12
+					default_format = "#bold;high"
+					parentanchor = center
+				}
+				text_single = { # The Quest for Erebor
+					fontsize_min = 8
+					position = { 595 33 }
+					# position = { 658 33 }
 					text = "bm_group_2941TA_years"
 					align = nobaseline
 					fontsize = 12
