@@ -498,7 +498,7 @@ bm_3000_gondor = {
 			dynasty_house = house_gondorstewards
 			type = male
 			birth = 7011.1.1
-			title = c_osgiliath
+			title = c_curedain
 			government = feudal_government
 			religion = faith_edain
 			culture = gondorian
@@ -700,7 +700,7 @@ bm_3000_horse_lords = {
 	# Théoden Thengling
 	character = {
 		name = "bookmark_horse_lords_theoden"
-		dynasty = 100
+		dynasty = dynasty_eorl
 		dynasty_splendor_level = 3
 		type = male
 		birth = 6981.9.19
@@ -715,7 +715,7 @@ bm_3000_horse_lords = {
 		character = {
 			name = "bookmark_horse_lords_theoden_alt_theodred"
 			relation = "BOOKMARK_RELATION_SON"
-			dynasty = 100
+			dynasty = dynasty_eorl
 			type = male
 			birth = 7011.3.23
 			title = d_westfold
@@ -727,7 +727,7 @@ bm_3000_horse_lords = {
 		character = {
 			name = "bookmark_horse_lords_theoden_alt_eomer"
 			relation = "BOOKMARK_RELATION_NEPHEW"
-			dynasty = 100
+			dynasty = dynasty_eorl
 			type = male
 			birth = 7024.1.1
 			title = d_eastfold
@@ -1132,6 +1132,166 @@ bm_2793_war_of_dwarves_and_orcs = {
 
 	weight = {
 		value = 1
+	}
+}
+
+#### 2754 T.A. ####
+bm_2754_rohan = {
+	start_date = 6787.1.1
+	is_playable = yes
+	group = bm_group_2754TA
+
+	weight = {
+		value = 2
+	}
+
+	
+	# Freca 
+	character = {
+		name = "bookmark_long_winter_freca"
+		dynasty = dynasty_freca
+		dynasty_splendor_level = 1
+		type = male
+		birth = 6717.2.11
+		title = d_westmarches
+		government = feudal_government
+		religion = faith_rohirric
+		culture = rohirrim
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_HARD"
+		history_id = lineoffreca1
+		position = { 500 550 }
+		animation = personality_irrational
+		# Targg, trusted general of Freca
+		character = {
+			name = "bookmark_long_winter_targg"
+			relation = "BOOKMARK_RELATION_VASSAL"
+			dynasty = dynasty_geanmar
+			type = male
+			birth = 6724.1.11
+			religion = faith_rohirric
+			culture = adornaen
+			history_id = linegeanmar9
+			animation = personality_bold
+		}
+		
+		# Wulf, son of Freca
+		character = {
+			name = "bookmark_long_winter_wulf"
+			relation = "BOOKMARK_RELATION_SON"
+			dynasty = dynasty_freca
+			type = male
+			birth = 6762.2.21
+			religion = faith_rohirric
+			culture = adornaen
+			history_id = lineoffreca3
+			animation = personality_callous
+		}
+	}
+	
+	# Helm Hammerhand
+	character = {
+		name = "bookmark_long_winter_helm_hammerhand"
+		dynasty = dynasty_eorl
+		dynasty_splendor_level = 2
+		type = male
+		birth = 6724.8.12
+		title = k_rohan
+		government = feudal_government
+		religion = faith_rohirric
+		culture = rohirrim
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_HARD"
+		history_id = lineofeorl9
+		position = { 800 500 }
+		animation = personality_bold
+		
+	}
+	
+	# Steward Beren of Gondor
+	character = {
+		name = "bookmark_long_winter_beren_of_gondor"
+		dynasty_house = house_gondorstewards
+		dynasty_splendor_level = 10
+		type = male
+		birth = 6688.1.1
+		title = e_gondor_steward
+		government = feudal_government
+		religion = faith_edain
+		culture = gondorian
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_MEDIUM"
+		history_id = linesteward31
+		position = { 750 750 }
+		animation = personality_rational
+		
+	}
+	
+	# Azog of Moria
+	character = {
+		name = "bookmark_long_winter_azog_of_moria"
+		dynasty = dynasty_ashmog
+		dynasty_splendor_level = 5
+		type = male
+		birth = 6654.7.16
+		title = d_zirakzigil
+		government = feudal_government
+		religion = way_of_strength
+		culture = worauthai_madur
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_HARD"
+		history_id = lineofazog1
+		position = { 850 150 }
+		animation = menacing
+		
+	}
+	
+	# The Witch-king 
+	character = {
+		name = "bookmark_long_winter_witchking"
+		dynasty = dynasty_witchking
+		dynasty_splendor_level = 8
+		type = male
+		birth = 2412.1.1
+		title = e_mordor
+		government = feudal_government
+		religion = lidless_eye
+		culture = ringwraith
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = nazgul1
+		position = { 1200 700 }
+		animation = personality_irrational
+		
+	}
+	
+	# Chieftain Arassuil
+	character = {
+		name = "bookmark_long_winter_arassuil"
+		dynasty_house = house_isildur
+		dynasty_splendor_level = 10
+		type = male
+		birth = 6661.1.1
+		title = d_northern_dunedain
+		government = feudal_government
+		religion = faith_edain
+		culture = dunedain_ranger
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_MEDIUM"
+		history_id = lineisildur37
+		position = { 450 300 }
+		animation = personality_honorable
+	}
+	
+	# King Thrór
+	character = {
+		name = "bookmark_long_winter_thror"
+		dynasty = dynasty_durin
+		dynasty_splendor_level = 10
+		type = male
+		birth = 6575.5.7
+		title = k_erebor
+		government = feudal_government
+		religion = faith_khazad
+		culture = longbeards
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_HARD"
+		history_id = lineofdurin81
+		position = { 1250 200 }
+		animation = personality_content
 	}
 }
 

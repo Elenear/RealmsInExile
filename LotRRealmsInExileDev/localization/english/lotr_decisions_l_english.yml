@@ -85,6 +85,11 @@
  convert_to_elven_government_decision_desc: "This is no way for elves to govern, we must return to our traditional way of life."
  convert_to_elven_government_decision_tooltip: "Convert to Elven Government"
  convert_to_elven_government_decision_confirm: "Return to Elvendom"
+ 
+ decision_integrate_nanduhirion:0 "Integrate Nanduhirion"
+ decision_integrate_nanduhirion_desc:0 "Nanduhirion, the Dimrill Dale, lies between the Golden Wood of [lorien|E] and the darkness of [moria|E]. If we were to gain control of it, we could erect a strong bastion here to ward against any threat coming down from the mountains."
+ decision_integrate_nanduhirion_tooltip:0 "Expand Lórien's borders westward"
+ decision_integrate_nanduhirion_confirm:0 "Nanduhirion shall become part of the Golden Wood."
 
  ### Maglor Decision ###
  decision_annihilate_abhorred:0 "Annihilate Sauron the Abhorred"
@@ -629,6 +634,12 @@
  decision_restore_defeated_gondor_tooltip:0 "Start a war to liberate [gondor|E]."
  decision_restore_defeated_gondor_tt1:0 "Minas Tirith has fallen"
  decision_restore_defeated_gondor.tt2:0 "You will select a new ruler for the Kingdom of Gondor if you win"
+ 
+ decision_calenardhon_calemmir:0 "Restore the Capital of Calenardhon"
+ decision_calenardhon_calemmir_desc:0 "During the reign of the kings of the line of Anárion, the province of [GetTitleByKey('k_rohan').GetNameNoTier] was governed from the city of [GetTitleByKey('c_aldburg').GetNameNoTier]. Now that the province is once again in gondorian hands, we could restore Calemmir to its old status of capital of the northern marches."
+ decision_calenardhon_calemmir_confirm:0 "Let Calemmir take its rightful place."
+ decision_calenardhon_calemmir_tooltip:0 "Make Calemmir the capital of Calenardhon once more."
+ decision_calenardhon_calemmir.tt:0 "The city of [GetTitleByKey('c_aldburg').GetNameNoTier] becomes the capital of the province of [GetTitleByKey('k_rohan').GetNameNoTier]."
 
  ##########################
  ### Dol Amroth Reforms ###
@@ -732,6 +743,11 @@
  decision_unite_the_sacred_isles_tooltip:0 "Form a new kingdom based upon the four Sacred Isles."
  decision_unite_the_sacred_isles_confirm:0 "All shall acknowledge my fame!"
  
+ decision_settle_tol_uialgaer:0 "Settle the Barren Isle"
+ decision_settle_tol_uialgaer_desc:0 "North of the lands of Mardruak lies the mysterious Barren Isle, also called [GetTitleByKey('c_tol_uialgaer').GetNameNoTier] by our people. If we are to unite the Sacred Isles, we should settle this last island in order to establish a haven of Corsairs on it."
+ decision_settle_tol_uialgaer_tooltip:0 "Colonize the far-off [GetTitleByKey('c_tol_uialgaer').GetNameNoTier]."
+ decision_settle_tol_uialgaer_confirm:0 "Send a ship of our best workers!"
+ 
  ###############################
  ####### Rohan Decisions #######
  ###############################
@@ -781,6 +797,7 @@
  decision_visit_dwimordene_desc:0 "The Dwimordene is an enchanted forest, shrouded in mists. Some say, a powerful fey rules these lands. Some even suggest visiting this forest in order to receive the fey's guidance..."
  decision_visit_dwimordene_tooltip:0 "Travel to the Golden Wood and meet its ruler."
  decision_visit_dwimordene_confirm:0 "I shall make for the Dwimordene."
+ decision_visit_dwimordene_tt:0 "You will travel to the Golden Wood"
  
  ###################################
  ####### Enedwaith Decisions #######
@@ -843,6 +860,31 @@
  decision_subjugate_the_ettenmoors_effect_desc:0 "Some of your councillors will travel to the Ettenmoors to try to subjugate the trolls"
  decision_subjugate_the_ettenmoors.b_cennmoin_is_a_wilderness:0 "[GetTitleByKey('b_cennmoin').GetName] is a wilderness"
  decision_subjugate_the_ettenmoors.not_ai_or_not_lore_friendly:0 "This decision is NOT rule-friendly. Which means only triggers with the rule  `lore-friendly` disabled or by a human."
+ 
+ decision_gram_destroy_rangers:0 "Weaken the Rangers"
+ decision_gram_destroy_rangers_tooltip:0 "Establish Raiding Outposts in Eriador"
+ decision_gram_destroy_rangers_desc:0 "Long have the [dunedain|E] Rangers defended the lands of Old [arnor|E]. Much bounty is said to hide behind their encircling shield. If we could tear a hole in their defenses, the riches of the Shire would be ours for the taking."
+ decision_gram_destroy_rangers_confirm:0 "Death to the Dúnedain!"
+ 
+ decision_stabilize_gram:0 "Stabilize Mount Gram"
+ decision_stabilize_gram_tooltip:0 "End the Anarchy of Gram"
+ decision_stabilize_gram_desc:0 "Golfimbul has failed, his raid on the Shire an unmitigated disaster. Our captain is dead, and with him the greater part of our fighting forces. Now, the slaves revolt, and every wretched snaga sees themself on the throne of Gram. Blood flows freely through the warrens as bands of outlaws and renegades slaughter each other in the open. A strong leader is needed to end this madness."
+ decision_stabilize_gram_confirm:0 "It will be me!"
+ 
+ decision_stabilize_gram_non_orc:0 "Stabilize Mount Gram"
+ decision_stabilize_gram_non_orc_tooltip:0 "End the Anarchy of Gram"
+ decision_stabilize_gram_non_orc_desc:0 "When we arrived in Gram, we found that the orcs were so busy slaughtering each other that they offered up almost no resistance."
+ decision_stabilize_gram_non_orc_confirm:0 "It ends now, at least."
+ 
+ decision_gram_avenge_greenfields:0 "Avenge the Battle of Greenfields"
+ decision_gram_avenge_greenfields_tooltip:0 "Destroy the Wretched Halflings"
+ decision_gram_avenge_greenfields_desc:0 "Golfimbul, Warchief of Gram, was slain by the "Bullroarer" Took and humiliated by the [hobbits|E] of the Shire. Though we are not his kin, all that dwell within this mountain wear the stain of that embarrassment; [orcs|E], defeated by halflings! We must avenge that defeat."
+ decision_gram_avenge_greenfields_confirm:0 "For Golfimbul, For Gram!"
+ decision_gram_avenge_greenfields_kill_tooks:0 "Bandobras 'Bullroarer' Took is dead"
+ decision_gram_avenge_greenfields_destroy_rangers:0 "You have broken the Rangers' defenses"
+ decision_gram_avenge_greenfields_stabilize_gram:0 "You have stabilized the anarchy in Mount Gram"
+ decision_avenge_greenfields_scour_shire:0 "You scour the Shire, shattering the title and pillaging the counties."
+ 
  
  ################################
  ###### Bellakar Decisions ######
@@ -1079,7 +1121,9 @@
  decision_destroy_mordor_generic_desc:0 "Too long has Mordor been allowed to grow in strength, while we have barely managed to hold onto our lands. No longer! Let us end this, once and for all."
  decision_destroy_mordor_confirm:0 "It is time to end this."
  destroy_mordor_decision:0 "Launches a final war to destroy Mordor, and Sauron, once and for all"
- destroy_mordor_decision_current_military_strength_tt:0 "You have at least half the strength of Mordors current army."
+ destroy_mordor_decision_current_military_strength_default_tt:0 "You have at least half the strength of Mordors current army."
+ destroy_mordor_decision_current_military_strength_elven_tt:0 "You have at least a fourth of the strength of Mordors current army."
+ destroy_mordor_decision_current_military_strength_dwarven_tt:0 "You have at least a third of the strength of Mordors current army."
  
  decision_invade_gondor:0 "Invade Gondor"
  decision_invade_gondor_tooltip:0 "Launch an invasion that, if successful, will destroy the Southern Kingdom once and for all"
@@ -1087,7 +1131,7 @@
  decision_invade_gondor_confirm:0 "All the East is gathered"
  invade_gondor_decision:0 "Launch the final assault to shatter Gondor and take Minas Tirith"
 
-### Orc Descisions
+### Orc Descisions ###
  
  decision_challenge_the_orc_leader:0 "Challenge the Warchief"
  decision_challenge_the_orc_leader_tooltip:0 "You will challenge your liege to a fight to the death. If you are victorious, you will seize all his titles from his bloodied corpse."
@@ -1117,7 +1161,13 @@
  decision_high_pass_east_tooltip:0 "Secure the East High Pass"
  decision_high_pass_east_desc:0 "The Skinchangers used to populate the mountain slopes, and warred with our ancestors for many centuries. We wiped out most of their kind, but one of them escaped and now rules in the Anduin Vale. Under him, the Valemen, with renewed strength, now prevent us from raiding their settlements as we once did. This accursed people must be ended once and for all."
  decision_high_pass_east_confirm:0 "The Skinchangers shall be wiped out for good!"
-
+ 
+ decision_demand_orc_submission:0 "Demand the Submission of the Misty Mountains"
+ decision_demand_orc_submission_tooltip:0 "All Orcs shall bend the knee or be destroyed."
+ decision_demand_orc_submission_desc:0 "My rule shall be absolute, and unchallenged. None may dare to stand against me, the Lord of all Peaks and Caverns!\n\nI will demand fealty from any Orc that still thinks to rule as independent. Not one of them shall defy me and live!"
+ decision_demand_orc_submission_confirm:0 "The Mountains are MINE!"
+ decision_demand_orc_submission_is_azog:0 "You are the Pale Orc"
+ decision_demand_orc_submission_tt:0 "All [orcs|E] in the Misty Mountains must react to your demand"
 
  ##############################
  #### Near Harad Decisions ####
@@ -1142,7 +1192,9 @@
  
  decision_purchase_mumakil:0 "Purchase Mûmakil"
  decision_purchase_mumakil_tooltip:0 "Import Mûmakil from the distant lands of the South"
- summon_mumakil_trader:0 "You will summon a trader able to sell you [GetMaA('war_mumak').GetName]. These will be at an inflated price compared to recruiting them by constructing a [GetBuilding('mumakil_pen_01').GetName] [duchy_building|E] which are only available to build in the [GetGeographicalRegion('special_region_build_mumakil_pens').GetName]."
+ summon_mumakil_trader_tt:0 "You will summon a trader to purchase ten [GetMaA('war_mumak').GetName] [men_at_arms|E]"
+ summon_mumakil_trader_inflated_price_tt:0 "#warning You will pay an inflated price compared to recruiting them directly!#!"
+ summon_mumakil_trader_recruitment_info_tt:0 "#help Direct recruitment is unlocked via:\n$BULLET_WITH_TAB$The [GetBuilding('mumakil_pen_01').GetName] [duchy_building|E] in the [GetGeographicalRegion('special_region_build_mumakil_pens').GetName]\n$BULLET_WITH_TAB$The [GetBuilding('wonder_palace_of_haruzan_03').GetName] [special_building|E] in [GetTitleByKey('b_amrun').GetNameNoTier]#!"
  decision_purchase_mumakil_desc:0 "While not neccessarily native to our lands, my people have the knowledge needed to tame and utilize the mighty Mûmakil in war. While it would cost me significantly more compared to raising them myself, I could pay to import them from the far south, in order to give me an edge in the wars to come..."
  decision_purchase_mumakil_confirm:0 "Find me a trader."
  
@@ -1195,6 +1247,12 @@
  decision_khand_stabilise_successions_existed_for_long_time:0 "The [GetTitleByKey('e_khand').GetName] has continuously existed for 100 years"
  decision_khand_stabilise_successions_ruled_for_three_generations:0 "The last three [rulers|E] of the [GetTitleByKey('e_khand').GetName] are of your [dynasty|E]"
  EFFECT_REMOVE_VARIAG_SUCCESSION:0 "Your [culture|E] will replace the [GetCultureTradition('tradition_variag_succession').GetName] [tradition|E] with [GetCultureTradition('tradition_variag_succession_stable').GetName]."
+ 
+ decision_unite_upper_khand_ovatha:0 "Unite Upper Khand"
+ decision_unite_upper_khand_ovatha_tooltip:0 "Forge the warring realms of Upper Khand into a united [kingdom|E]"
+ decision_unite_upper_khand_ovatha_desc:0 "With the growing threat of the Easterlings to the north, we must put aside our petty squabbles and unite under a single banner.\n\nUnder #Italic my #! banner!"
+ decision_unite_upper_khand_ovatha_confirm:0 "Upper Khand shall be mine!"
+ decision_unite_upper_khand_ovatha_tt:0 "You will demand the subjugation of the Lords of Upper Khand"
 
  ###############################
  #### Anduin Vale Decisions ####
@@ -1233,6 +1291,25 @@
  decision_reclaim_rhovanion_plains_confirm:0 "The plains are ours once more!"
 
  rhovanion_resettlement_culture_counties_custom:1 "Every [county|e] of Easterling or Northmen [heritage|E] in the [GetGeographicalRegion('custom_plains_rhovanion').GetName] [region|E]"
+ 
+ ########################
+ #### Dale Decisions ####
+ ########################
+ 
+ decision_integrate_drakkenvast:0 "Integrate Drakkenvast"
+ decision_integrate_drakkenvast_tooltip:0 "Fully integrate the northern frontiert into your kingdom"
+ decision_integrate_drakkenvast_desc:0 "Beyond the Lonely Mountain lies the plain of Drakkenvast, which has only ever been lightly settled. Now that our kinsmen have begun to expand towards the foothills of the Grey Mountains, it is time to declare our jurisdiction over these lands to be seen by all."
+ decision_integrate_drakkenvast_confirm:0 "Let the North be secured!"
+ 
+ decision_strengthen_eastern_border:0 "Strengthen the Eastern Border"
+ decision_strengthen_eastern_border_tooltip:0 "Invest in the defence of the eastern marches"
+ decision_strengthen_eastern_border_desc:0 "Along our eastern border flows the river Carnen, defended by the outposts at [GetTitleByKey('c_carnedir').GetNameNoTier] and [GetTitleByKey('c_khunandar').GetNameNoTier]. With our recent expansion into that region and threats from the East ever prevalent, it would be wise to invest into the defence of this crucial border."
+ decision_strengthen_eastern_border_confirm:0 "Our eastward vigil shall be renewed!"
+ 
+ decision_buy_armour_from_the_dwarves:0 "Purchase Dwarven Armour"
+ decision_buy_armour_from_the_dwarves_tooltip:0 "Acquire dwarf-made armour for your army from Erebor."
+ decision_buy_armour_from_the_dwarves_desc:0 "In the days before the coming of the Dragon, our ancestors traded often with the [dwarves|E] of the Lonely Mountain, supplying them with foodstuffs in exchange for their superiour arms and armour. We could revive this tradition and outfit our soldiers with dwarf-forged armour, giving them an edge in the wars to come."
+ decision_buy_armour_from_the_dwarves_confirm:0 "Send a missive to Erebor!"
 
  ################################
  ####   Saralain Decisions   ####
@@ -1401,14 +1478,14 @@
  #Donan Eastern Kingdom
  decision_create_eastern_donan_kingdom:0 "Establish Kobahdonath"
  decision_create_eastern_donan_tooltip:0 "Create a realm devoted to Kobah"
- decision_create_eastern_donan_desc:0 "Ever since our arrival in Harondor, our people have been on the defensive, clinging to our homes in the remote mountains next to the Shadow. But no more. Through the guidance given to us by the Old God of the Mountain, our people have pushed to claim the lands that by all accounts, should be rightfully ours. And for his support, we shall name our kingdom for him. Kobahdonath."
+ decision_create_eastern_donan_desc:0 "Ever since our arrival in Harondor, our people have been on the defensive, clinging to our homes in the remote mountains next to the Shadow. But no more. Through the guidance given to us by the Old God of the Mountain, our people have pushed to claim the lands that by all accounts, should be rightfully ours. And for his support, we shall name our kingdom for him: Kobahdonath."
  decision_create_eastern_donan_confirm:0 "The Will of Kobah"
  donan_formation_eastern_drift_tooltip:0 "If fully controlled, then the duchies of Hingren, Amrun and Huk Saromis will also become a de-jure part of the kingdom"
  
  #Donan Western Kingdom
  decision_create_western_donan_kingdom:0 "Establish Kazidonath"
  decision_create_western_donan_tooltip:0 "Create a realm devoted to Kaz"
- decision_create_western_donan_desc:0 "Ever since our arrival in Harondor, our people have been on the defensive, clinging to our remote villages in the windswept hills and valleys. But no more. Through the guidance given to us by the Lord of the Open Sky, our people have pushed to claim the lands that by all accounts, should be rightfully ours. And for his support, we shall name our kingdom for him. Kazidonath"
+ decision_create_western_donan_desc:0 "Ever since our arrival in Harondor, our people have been on the defensive, clinging to our remote villages in the windswept hills and valleys. But no more. Through the guidance given to us by the Lord of the Open Sky, our people have pushed to claim the lands that by all accounts, should be rightfully ours. And for his support, we shall name our kingdom for him: Kazidonath"
  decision_create_western_donan_confirm:0 "The Will of Kaz"
  
  #Donan Empire
@@ -1419,6 +1496,40 @@
  decision_create_donan_empire_confirm:0 "The Great Bels have willed it be"
  donan_formation_empire_drift_tooltip:0 "Any previous duchies that could have been added to Kobahdonath or Keldonath and were not will be added, alongside the duchies of Aegardh, Laergaladrin and Eredir being added to Kazidonath"
  
+ ###########################
+ ##### Daen Decisions ######
+ ###########################
+ 
+ # Eredrim Kingdom 
+ decision_eredrim_kingdom:0 "Unite the Eredrim"
+ decision_eredrim_tooltip:0 "Create a kingdom for the Eredrim"
+ decision_eredrim_desc:0 "The people of the mountains have long been disunited, splinter into competing clans. However, a great leader, strong as the mountains that birthed him, might yet be able to bring them together. Under such a mighty chieftain, we would reach heights not seen since the [secondage|E], perhaps even regain our ancient homes!"
+ decision_eredrim_confirm:0 "Come, my children!"
+
+ #Eredrim Lefnui Expansion
+ decision_eredrim_expansion_lefnui:0 "Expand Down the Lefnui"
+ decision_eredrim_expansion_lefnui_tooltip:0 "Expand along the River Lefnui"
+ decision_eredrim_expansion_lefnui_desc:0 "In our ancient songs, the rivers are borne from their mothers, the mountain-crests, and flow to their father, the vast and wide ocean. From those selfsame mountaintops to the edge of the sea our people have come, and now all the folk of the Lefnui join in our realm. This river that carves the cliffs and waters the fields shall nourish our crops and grow our people!"
+ decision_eredrim_expansion_lefnui_confirm:0 "The river is our heart."
+
+ #Eredrim Druwaith Expansion
+ decision_eredrim_expansion_druwaith:0 "Integrate Drúwaith"
+ decision_eredrim_expansion_druwaith_tooltip:0 "Expand across the Mountains"
+ decision_eredrim_expansion_druwaith_desc:0 "Long we have lived in the shadow of the White Mountains, and our people have spread across them, north and south. Now that we have united the clans of the southern vales, we must turn northwards to the Pukel-land, where our northern brothers live amidst the Woses of the Woods. We shall bring them into our kingdom, for the hills do not divide us, the sons and daughters of the mountains."
+ decision_eredrim_expansion_druwaith_confirm:0 "The mountains are our shelter."
+
+ #Eredrim Erech Expansion
+ decision_eredrim_expansion_erech:0 "Reclaim Erech"
+ decision_eredrim_expansion_erech_tooltip:0 "Expand to our ancient homelands"
+ decision_eredrim_expansion_erech_desc:0 "Long ago, the King out of the West defeated the King of the Mountains, casting back thier folk, and cursing them to eternal death. Since then, the ancient fane of Erech has lain in Gondorian control. Now, at last the Mountain-Folk have returned! We will reinhabit these lands where once the Dead Men walked, and curse the [gondorians|E] in turn. These hills shall once more be our home, and Erech our fotress and border."
+ decision_eredrim_expansion_erech_confirm:0 "The hills are our home."
+ 
+ #Daen Coentis Empire
+ decision_daen_coentis_empire:0 "Reclaim the Mountains"
+ decision_daen_coentis_empire_tooltip:0 "Establish a Daen Empire along the White Mountains"
+ decision_daen_coentis_empire_desc:0 "In ancient days, the Men of the Mountains ruled all the foothills of the Ered Nimrais, secure and proud. But then the invading [dunedain|E] arrived, and our people were defeated, forced into the west and forgotten.\n\n Now we have arisen once gain, and the [dunedain|E] have fled before our faces, and we once more control the ancient lands of our people. This time, we shall not be moved, and our people will stand as long as these mountains do."
+ decision_daen_coentis_empire_confirm:0 "We need no friends but the mountains."
+
  ###########################
  #### Endgame Decisions ####
  ###########################
@@ -1741,6 +1852,8 @@
  decision_aukuag_empire_desc:0 "With the Aukuag and Qarsag peoples now controlling all the land from the Auz Hulja to the [bayoftulwang|E], there is but one direction left to expand - west. By unifying the Aukuag and Qarsag, and conquering the Sîres valley, we could unite our ancient homeland of Unâv!"
  decision_aukuag_empire_confirm:0 "The sandmen shall claim their own!"
 
+ clan_vassals_will_convert:1 "As I am Apysaic or Talataerim, my [tribal|E] vassals will change to [clan|E] government"
+
  ##############################
  ##### Religious Decision #####
  ##############################
@@ -1862,7 +1975,54 @@
  search_usakan_tooltip:0 "Ûsakan"
  
  ### Artifact Decisions ###
- make_heirloom_decision:0 "Bestow Heirloom Upon your Heir"
- make_heirloom_decision_tooltip:0 "I have so many extra artifacts"
- make_heirloom_decision_desc:1 "#F It is customary for prestigious rulers to bestow prestigious artifacts upon their heirs, as a mark of status.#!"
- make_heirloom_decision_confirm:1 "Confirm Text Placeholder so I don't get an error"
+ bestow_heirloom_decision:0 "Bestow Heirloom Upon your Heir"
+ bestow_heirloom_decision_tooltip:0 "Decree one of your artifacts to be born by the heirs of your realm in perpetuity"
+ bestow_heirloom_decision_desc:0 "#F It is customary for great kings and emperors to bestow prestigious artifacts upon their heirs, so that they might be recognised and honoured as bearer of [heirlooms|E].#!"
+ bestow_heirloom_decision_confirm:1 "I need an inventory!"
+ bestow_heirloom_decision_unattached_artifact_tt: "is tied to no title"
+ bestow_heirloom_decision_artifact_attached_to_secondary_title_tt: "is tied to one of your secondary titles"
+ bestow_heirloom_decision_silmaril_rop_tt: "is not a Silmaril or a [ringofpower|E]"
+
+ #####################################
+ ### War of the Rohirrim Decisions ###
+ #####################################
+
+ decision_wulf_marriage_saralain:0 "Secure an Alliance with the Saralain"
+ decision_wulf_marriage_saralain_tooltip:0 "Provide military aid to Adorn of the Saralain to secure his daughter's hand in marriage."
+ decision_wulf_marriage_saralain_desc:0 "Uncle Cerith has spoken of his cousin [GetTitleByKey('k_saralain').GetHolder.GetFirstName], lord of the Saralain, and the troubles that press upon him. His ambition is bold - seeking to command both banks of the Gwathló - but his southern neighbours have united, their alliances blocking his path.\n\nIf I were to help him break the deadlock, Cerith believes Pedrogh would grant me his daughter’s hand, sealing an alliance through blood and marriage.\n\nAlthough the Saralain have long been sundered from the Dunlendings, our people share a kindred bond, and there is wisdom in forging alliances both beyond and within."
+ decision_wulf_marriage_saralain_confirm:0 "Gather the men, we ride for Súthure!"
+ decision_wulf_marriage_saralain_effects1:0 "#V You#! and #V [GetTitleByKey('k_saralain').GetHolder.GetName]#! start "County Conquest" [wars|E] against his neighbours to secure the #V [GetTitleByKey('d_nen_gwathlo').GetName]#!."
+ decision_wulf_marriage_saralain_effects2:0 "If successful, you will be given his daughter's hand in [marriage|E], securing an [alliance|E] with the #V [GetTitleByKey('k_saralain').GetName]#!."
+
+ decision_wulf_marriage_eredrim:0 "Secure an Alliance with the Eredrim"
+ decision_wulf_marriage_eredrim_tooltip:0 "Send a messenger to Adorn of the Eredrim to secure his daughter's betrothal."
+ decision_wulf_marriage_eredrim_desc:0 "My father once spoke of the Eredrim, the proud mountain lords who dwelt on the western borders of his realm. Among them, none were as feared or respected as [GetTitleByKey('d_hairavercien').GetHolder.GetFirstNameNicknamed] - a man of towering stature and unyielding will, whose name is known even beyond the White Mountains.\n\nAdorn has a daughter, young Aliz, barely more than a child but already spoken of for her sharp wit and promising strength. A marriage to her would be one of opportunity, not love. The years between us, and the vast differences in our ways, would make such a union challenging.\n\nWinning Adorn’s favour would bring a powerful ally to my cause, but it is no easy feat. The Eredrim’s scorn for outsiders runs deep, and Adorn’s respect is earned only through trials that would humble lesser men. Yet, if I am to rise, even the highest mountain must be climbed."
+ decision_wulf_marriage_eredrim_confirm:0 "Send a missive, tell him to wear warm furs."
+ decision_wulf_marriage_eredrim_effects1:0 "#V You#! send a messager to #V [GetTitleByKey('d_hairavercien').GetHolder.GetName]#! to request the betrothal, though is likely to require some convincing."
+ decision_wulf_marriage_eredrim_effects2:0 "If successful, you will be given his daughter's hand in [marriage|E], securing an [alliance|E] with the #V [GetTitleByKey('d_hairavercien').GetName]#!."
+
+ decision_wulf_declare_king_of_dunland:0 "Unite the Dunlendings"
+ decision_wulf_declare_king_of_dunland_tooltip:0 "Whether through persuasion or the clash of steel, unite the Dunlendings under your banner."
+ decision_wulf_declare_king_of_dunland_desc:0 "To bring Rohan to its knees, I must first unite the Dunlendings - ancient enemies of the Mark, scattered and divided by feuds and old grievances.\n\nThey must stand together, bound by purpose, whether through persuasion or the clash of steel. Only then will I have the strength to challenge Rohan, to shatter its pride, and to claim its throne as my own."
+ decision_wulf_declare_king_of_dunland_confirm:0 "Our time is now!"
+ is_friends_with_wulf:0 "Is #V Your#! [friend|E]"
+ is_an_ally_of_wulf:0 "Is #V Your#! [ally|E]"
+ is_hooked_by_wulf:0 "Is [hooked|E] by #V You#!"
+ is_wulf:0 "Is #V You#!"
+
+ decision_wulf_conversion:0 "A Question of Faith"
+ decision_wulf_conversion_tooltip:0 "Embrace one of the predominant faiths of Dunland in a great public conversion ritual, or reaffirm your commitment to the beliefs of the Rohirrim."
+ decision_wulf_conversion_desc:0 "The waters of Loch Thiar shimmer beneath the moonlight, a sacred site where the spirits of Dunland are said to dwell. Though I now hold this place, the people still see me as an outsider, my ways foreign and strange. If I am to lead them, a public act of devotion could shift their hearts—making them more sympathetic to my cause and proving that my allegiance lies with them, not their age-old enemies, the Rohirrim.\n\nYet, such a step carries risks. To embrace their ways may alienate the lords of Rohan, making it harder to win their support for my claim to the throne. It is a gamble, one that might shape my path to power - or hinder it."
+ decision_wulf_conversion_confirm:0 "Travel to Loch Thiar"
+ convert_to_turthalis:0 "Embrace the mist lord, #V [GetFaithByKey('faith_dunlending_turthalis').GetName]#!"
+ convert_to_turthalis_tooltip:0 "The faith of [GetFaithByKey('faith_dunlending_turthalis').GetName] honours the spirit of the mists, a guiding presence revered by the Dunlendings of the north. Its followers value hospitality, diplomacy, and unity, believing Tûrthalis brings clarity to those lost in the fog.\n\n#P By embracing this faith, I may win the trust of the northern clans, and seek to secure alliances through peace and negotiation.#!\n\n#N However, its emphasis on mediation and restraint may alienate the warriors of the south on Rohan's border who crave action, and hold long-held grudges against their enemies: the Rohirrim.#!"
+ convert_to_turthalis_desc:0 "$convert_to_turthalis_tooltip$"
+ convert_to_khrabnazerh:0 "Embrace the storm lord, #V [GetFaithByKey('faith_dunlending_khrabnazerh').GetName]#!"
+ convert_to_khrabnazerh_tooltip:0 "The followers of [GetFaithByKey('faith_dunlending_khrabnazerh').GetName] worship the corvid spirit of mountain storms, a force of vengeance and glory revered by the Dunlendings of the south. They are fierce and unyielding, valuing strength, war, and the settling of old grudges.\n\n#P By embracing Khrabnazarh, I could rally the warriors of Dunland, forging an army driven by shared fury and purpose.#!\n\n#N Yet, this choice risks deepening divisions with thr more moderate clans of the north and alienating the Rohirrim entirely, casting me as a bringer of war rather than a unifier.#!"
+ convert_to_khrabnazerh_desc:0 "$convert_to_khrabnazerh_tooltip$"
+ retain_rohirric_faith:0 "Renew my #V [GetFaithByKey('faith_rohirric').GetName]#! faith"
+ retain_rohirric_faith_tooltip:0 "The ancient [GetFaithByKey('faith_rohirric').GetName] gods of [bemacharacter|E] and [foldewyncharacter|E], represent the wild hunt and the bounty of the earth.\n\n#P While the Dunlendings reject this faith as foreign, my continued devotion to it might strengthen my claim among the Rohirric lords who would be my vassals and show my intent to reclaim my lost bloodright.#!\n\n#N However, this path is likely to win me few friends among the Dunlendings, leaving them sceptical of my true allegiance, potentially weakening their support and leaving me isolated in the lands I seek to lead.#!"
+ retain_rohirric_faith_desc:0 "$retain_rohirric_faith_tooltip$"
+ you_keep_your_rohirric_faith:0 "You retain your [GetFaithByKey('faith_rohirric').GetName] [faith|E]"
+
+ TO_BE_ADDED_WIP:0 "WORK IN PROGRESS - TO BE CONTINUED"

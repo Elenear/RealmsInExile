@@ -291,7 +291,10 @@ set_every_county_wilderness = {
 
 add_empires_to_global_list = {
 	every_empire = {
-		limit = { any_de_jure_county = { count > 0 } }
+		limit = {
+			NOT = { this = title:e_valinor }
+			any_de_jure_county = { count > 0 }
+		}
 		add_to_global_variable_list = {
 			name = all_empires_in_game
 			target = this
@@ -675,6 +678,188 @@ lotr_sunset_invasion_adventurer_effect = {
 	set_invasion_camp_buildings = yes
 }
 
+sauron_strength_gamerule_buffs = {
+	character:lineofsauron = {
+		if = {
+			limit = { has_game_rule = weakened_sauron_strength }
+			add_character_modifier = sauron_weakened_modifier
+		}
+		else_if = {
+			limit = { has_game_rule = strong_sauron_strength }
+			add_character_modifier = sauron_strengthened_1_modifier
+		}
+		else_if = {
+			limit = { has_game_rule = very_strong_sauron_strength }
+			add_character_modifier = sauron_strengthened_2_modifier
+		}
+		else_if = {
+			limit = { has_game_rule = apocalyptic_sauron_strength }
+			add_character_modifier = sauron_strengthened_3_modifier
+		}
+	}
+	every_ruler = {
+		limit = {
+			has_character_modifier = sauron_strengthened_3_modifier
+			OR = {
+				highest_held_title_tier < tier_kingdom
+				primary_title = title:k_gundabad # Special case since they're very small
+			}
+		}
+		create_story = story_conqueror
+	}
+
+	### GAME RULE: SAURON STRENGH - FLAMES OF UDUN BUFFS (Stella_SAX 09.12.24)
+	character:lineofhuz190 = { # Huz-Margoz
+		if = {
+			limit = {
+				is_alive = yes
+				is_landed = yes
+			}
+			if = {
+				limit = { has_game_rule = apocalyptic_sauron_strength }
+				add_character_modifier = sauron_strengthened_4_modifier
+			}
+		}
+	}
+	character:nazgul2 = { # Khamul
+		if = {
+			limit = {
+				is_alive = yes
+				is_landed = yes
+			}
+			if = {
+				limit = { has_game_rule = apocalyptic_sauron_strength }
+				add_character_modifier = sauron_strengthened_4_modifier
+			}
+		}
+	}
+	# The Witch King
+	character:nazgul1 = {
+		if = {
+			limit = {
+				is_alive = yes
+				is_landed = yes
+			}
+			if = {
+				limit = { has_game_rule = apocalyptic_sauron_strength }
+				add_character_modifier = sauron_strengthened_4_modifier
+			}
+		}
+	}
+	character:lineoftharzog1 = { # Tharzog of Mt Gram
+		if = {
+			limit = {
+				is_alive = yes
+				is_landed = yes
+			}
+			if = {
+				limit = { has_game_rule = apocalyptic_sauron_strength }
+				add_character_modifier = sauron_strengthened_4_modifier
+			}
+		}
+	}
+	character:lineofafalku15 = { # Suladan of Haruzan
+		if = {
+			limit = {
+				is_alive = yes
+				is_landed = yes
+			}
+			if = {
+				limit = { has_game_rule = apocalyptic_sauron_strength }
+				add_character_modifier = sauron_strengthened_4_modifier
+			}
+		}
+	}
+	# The Golden King
+	character:nazgul3 = {
+		if = {
+			limit = {
+				is_alive = yes
+				is_landed = yes
+			}
+			if = {
+				limit = { has_game_rule = apocalyptic_sauron_strength }
+				add_character_modifier = sauron_strengthened_4_modifier
+			}
+		}
+	}
+	# Vangaris of Khand
+	character:vangarisofkhand = {
+		if = {
+			limit = {
+				is_alive = yes
+				is_landed = yes
+			}
+			if = {
+				limit = { has_game_rule = apocalyptic_sauron_strength }
+				add_character_modifier = sauron_strengthened_4_modifier
+			}
+		}
+	}
+	character:lineofanballukkhorohin31 = { # Balâkhân, King of An-Balkumagan
+		if = {
+			limit = {
+				is_alive = yes
+				is_landed = yes
+			}
+			if = {
+				limit = { has_game_rule = apocalyptic_sauron_strength }
+				add_character_modifier = sauron_strengthened_4_modifier
+			}
+		}
+	}
+	character:lineofdulgu44 = { # Arnakhôr, Marshall of the Storm-Host
+		if = {
+			limit = {
+				is_alive = yes
+				is_landed = yes
+			}
+			if = {
+				limit = { has_game_rule = apocalyptic_sauron_strength }
+				add_character_modifier = sauron_strengthened_4_modifier
+			}
+		}
+	}
+	character:lineofgoblinking1 = {
+		if = {
+			limit = {
+				is_alive = yes
+				is_landed = yes
+			}
+			if = {
+				limit = { has_game_rule = apocalyptic_sauron_strength }
+				add_character_modifier = sauron_strengthened_4_modifier
+			}
+		}
+	}
+
+	character:lineofazog10 = {
+		if = {
+			limit = {
+				is_alive = yes
+				is_landed = yes
+			}
+			if = {
+				limit = { has_game_rule = apocalyptic_sauron_strength }
+				add_character_modifier = sauron_strengthened_4_modifier
+			}
+		}
+	}
+
+	character:lineofazog6 = {
+		if = {
+			limit = {
+				is_alive = yes
+				is_landed = yes
+			}
+			if = {
+				limit = { has_game_rule = apocalyptic_sauron_strength }
+				add_character_modifier = sauron_strengthened_4_modifier
+			}
+		}
+	}
+}
+
 set_invasion_camp_buildings = {
 	domicile = {
 		# Domicile
@@ -736,6 +921,96 @@ make_former_tamska_effect = {
 	add_trait = former_tamska
 }
 
+make_generated_tamskangi_interesting_effect = {
+	hidden_effect = { # Post-Creation make them interesting!
+	    if = { # They shouldnt be all that sinful
+	        limit = {
+	            num_sinful_traits >= 1
+	        }
+	        flip_sinful_trait_effect = yes
+	    }
+		random = { # Odd birth circumstance
+			chance = 5
+	    	if = {
+	    	    limit = {
+	    	        faith = { has_doctrine = doctrine_bastardry_none }
+	    	    }
+				add_trait = wild_oat
+			}
+			else = {
+				add_trait = bastard
+			}
+		}
+		random = { # Maybe they have something genetic!
+			chance = 20
+			random_list = {
+				30 = { add_trait = beauty_good_1 }
+				20 = { add_trait = beauty_good_2 }
+				10 = { add_trait = beauty_good_3 }
+				30 = { add_trait = intellect_good_1 }
+				20 = { add_trait = intellect_good_2 }
+				10 = { add_trait = intellect_good_3 }
+				30 = { add_trait = physique_good_1 }
+				20 = { add_trait = physique_good_2 }
+				10 = { add_trait = physique_good_3 }
+				20 = { add_trait = fecund }
+				20 = { add_trait = strong }
+				20 = { add_trait = shrewd }
+				20 = { add_trait = giant }
+				10 = { add_trait = possessed_genetic }
+	            
+	            # Certain traits may appear, but are much less likely
+				10 = { add_trait = beauty_bad_1 }
+				5 = { add_trait = beauty_bad_2 }
+				10 = { add_trait = intellect_bad_1 }
+				10 = { add_trait = physique_bad_1 }
+				10 = { add_trait = weak }
+				5 = { add_trait = dull }
+				5 = { add_trait = lisping }
+				5 = { add_trait = stuttering }
+				20 = { add_trait = impotent }
+				10 = { add_trait = infertile }
+				5 = { add_trait = lunatic_genetic }
+				5 = { add_trait = wheezing }
+				5 = { add_trait = clubfooted }
+				1 = { add_trait = hunchbacked }
+				1 = { add_trait = spindly }
+				1 = { add_trait = scaly }
+				1 = { add_trait = bleeder }
+				1 = { add_trait = albino }
+				1 = { add_trait = dwarf }
+			}
+		}
+	    if = { # They could be a Child miracle worker!
+	        limit = {
+	            faith = { has_doctrine_parameter = mystic_birthright_active }
+	        }
+	        random = {
+	            chance = 20
+	            add_trait = lifestyle_mystic
+	        }
+	    }
+	    if = { # They keep in touch with their origins
+	        limit = {
+	            is_lowborn = yes
+	        }
+	        random = {
+	            chance = 5
+	            add_trait = peasant_leader
+	        }
+	    }
+	    if = { # Maybe they carry some ancient blessing?
+	        limit = {
+	            lotr_has_numenorean_culture_trigger = yes
+	        }
+	        random = {
+	            chance = 5
+	            add_trait = blood_of_numenor_1
+	        }
+	    }
+	}
+}
+
 become_tamskangi_effect = {
 	# TBD: Save former house, parents and bastardry traits for un-tamskangi-ing
 	if = {
@@ -748,9 +1023,13 @@ become_tamskangi_effect = {
 	}
 	hidden_effect = {
 		remove_trait = bastard
+		remove_trait = legitimized_bastard
 		remove_trait = bastard_founder
 		remove_trait = disputed_heritage
 		remove_trait = disinherited
+		remove_trait = denounced
+		remove_trait = gallivanter
+		remove_trait = devoted
 	}
 	add_trait = tamska_heir
 	set_house = root.house
@@ -839,9 +1118,54 @@ set_children_as_tamksa_dynasty = {
 	}
 }
 
+test_create_contract = {
+	create_task_contract = {
+		task_contract_type = lotr_story
+		location = root.location
+		task_contract_employer = root.location.county.holder
+		task_contract_tier = 4
+	}
+}
+
+# Smaug destroyed all my land effect
+smaug_become_landless_effect = {
+	show_as_tooltip = { banish = yes }
+	save_scope_as = allow_imprisoned_landless
+	if = {
+		limit = { is_valid_for_laampdom = yes }
+		custom_tooltip = laamp_may_become_adventurer_tt
+	}
+	$BANISHER$ = { save_scope_as = banisher }
+	trigger_event = { id = smaug_event_chain.0102 }
+}
+
 add_building_if_possible = {
 	if = {
 		limit = { has_free_building_slot = yes }
 		add_building = $BUILDING$
+	}
+}
+
+misc_test = {
+	every_ruler = {
+		limit = {
+			is_independent_ruler = yes
+			NOT = { has_variable = my_suzerain }
+			is_in_valinor = no
+			is_wastelands = no
+		}
+		save_scope_as = curr_ruler
+		make_tributary = {
+			TYPE = tributary_non_permanent
+			SUZERAIN = character:lineofsauron
+			TRIBUTARY = scope:curr_ruler
+		}
+		if = {
+			limit = { 
+				is_wastelands = yes
+				has_variable = my_suzerain
+			}
+			free_tributary = yes
+		}
 	}
 }

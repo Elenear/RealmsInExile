@@ -1481,7 +1481,10 @@ elven_racial.0200 = { # Vanquish Darkness CB - war start event to convert and en
 	}
 	
 	option = { # I yield!
-		name = elven_racial.0001.a
+		name = elven_racial.0200.a
+		trigger = {
+			is_orc = no
+		}
 		add_prestige = -250
 		capital_county = {
 			vanquish_darkness_generate_new_holder_culture_and_faith = yes
@@ -1502,7 +1505,7 @@ elven_racial.0200 = { # Vanquish Darkness CB - war start event to convert and en
 	}
 
 	option = { # Never!
-		name = elven_racial.0200.a
+		name = elven_racial.0200.b
 		add_piety = 200
 		ai_chance = {
 			base = 100

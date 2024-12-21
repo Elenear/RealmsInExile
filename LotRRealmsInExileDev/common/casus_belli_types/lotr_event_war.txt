@@ -5,7 +5,7 @@
 #
 #	T.A. 1349 CBs
 #
-#
+#   T.A. 2754 CBs
 #
 #
 ###################
@@ -6097,8 +6097,16 @@ restore_gondor_cb = { # Liberation of Gondor cb
 		has_character_flag = liberating_gondor
 		faith_is_good = yes
 	}
+
+	max_attacker_score_from_battles = 300
+	defender_ticking_warscore = 0
+	attacker_wargoal_percentage = 0.5
+	attacker_score_from_battles_scale = 50
+	defender_score_from_battles_scale = 10
+	landless_attacker_needs_armies = yes
+	full_occupation_by_attacker_gives_victory = yes
 	
-	target_titles = all
+	target_titles = none #title:c_minas_tirith.empire??
 	target_title_tier = all
 	target_de_jure_regions_above = yes
 	ignore_effect = change_title_holder
@@ -6110,8 +6118,21 @@ restore_gondor_cb = { # Liberation of Gondor cb
         scope:defender = {
             trigger_event = gondor.6501
         }
-		# scope:attacker = {
-			# trigger_event = gondor.6500
+		# scope:attacker = { #For testing purposes. Don't judge me, I had to win the war somehow. ~Aerien
+			# spawn_army = {		 
+				# uses_supply = no
+				# inheritable = yes
+				# name = amrothian_reserves
+				# men_at_arms = {
+					# type = gondorian_bowmen
+					# stacks = 500
+				# }
+				# men_at_arms = {
+					# type = gondorian_footmen
+					# stacks = 800
+				# }
+				# location = capital_province
+			# }
 		# }
 	}	
 	
@@ -6121,50 +6142,39 @@ restore_gondor_cb = { # Liberation of Gondor cb
 		first_valid = {
 			triggered_desc = {
 				trigger = { scope:attacker = { is_local_player = yes } }
-				desc = invasion_war_victory_desc_attacker
+				desc = liberating_gondor_victory_desc_attacker
 			}
-			desc = invasion_war_victory_desc
-		}
-		triggered_desc = {
-			trigger = { scope:attacker = { is_local_player = yes } }
-			desc = invasion_war_warning_desc
+			desc = liberating_gondor_victory_desc
 		}
 	}
 	
 	on_victory = {
+		custom_tooltip = restore_gondor_cb_tt
+		
 		# Legitimacy
 		add_legitimacy_attacker_victory_effect = yes
 
 		scope:attacker = { show_pow_release_message_effect = yes }
-		hidden_effect = {
-			create_title_and_vassal_change = {
-				type = conquest
-				save_scope_as = change
-				add_claim_on_loss = yes
+
+		scope:defender = {
+			pay_short_term_gold = {
+				gold = minor_gold_value
+				target = scope:attacker
+				#yearly_income = yes
 			}
-			
-			setup_invasion_cb = {
-				titles = target_titles
-				attacker = scope:attacker
-				defender = scope:defender
-				change = scope:change
-				take_occupied = yes
-			}
-			resolve_title_and_vassal_change = scope:change
 		}
 		
-		custom_tooltip = restore_gondor_cb_tt
 
-		# Attacker gets Prestige Experience, Defender loses Prestige, all other participants gain Prestige based on their war contribution.
+		#Fame distribution
 		modify_all_participants_fame_values = {
 			WINNER = scope:attacker
 			LOSER = scope:defender
-			FAME_BASE = scope:cb_prestige_factor # Set by 'setup_invasion_cb'
+			FAME_BASE = 80
 			IS_RELIGIOUS_WAR = no
 			WINNER_FAME_SCALE = 10
 			LOSER_FAME_SCALE = -10
-			WINNER_ALLY_FAME_SCALE = 10
-			LOSER_ALLY_FAME_SCALE = 10
+			WINNER_ALLY_FAME_SCALE = 5
+			LOSER_ALLY_FAME_SCALE = 5
 		}
 		
 		hidden_effect = {
@@ -6179,17 +6189,6 @@ restore_gondor_cb = { # Liberation of Gondor cb
 		# Truce
 		add_truce_attacker_victory_effect = yes
 
-		# FP1: note the victory for future memorialisation via stele (if applicable).
-		scope:attacker = { fp1_remember_recent_conquest_victory_effect = yes }
-
-		# if = {
-			# limit = { # Major News
-				# NOT = { has_game_rule = no_news }
-			# }
-			# every_player = { #Global News Announcement
-				# trigger_event = news_event.0014
-			# }
-		# }
 
 		# EP3: note gold gained from military assistance/join war contracts and their war contribution threshold
 		laamp_as_mercenary_payout_tooltip_effect = yes
@@ -6254,9 +6253,9 @@ restore_gondor_cb = { # Liberation of Gondor cb
 		# Prestige loss for the attacker
 		scope:attacker = {
 			pay_short_term_gold = {
-				gold = medium_gold_value
+				gold = minor_gold_value
 				target = scope:defender
-				yearly_income = yes
+				#yearly_income = yes
 			}
 			add_prestige = {
 				value = massive_prestige_value
@@ -6288,17 +6287,10 @@ restore_gondor_cb = { # Liberation of Gondor cb
 		
 		scope:attacker = {
 			save_temporary_scope_as = loser
+			remove_character_flag = liberating_gondor
 		}
 		on_lost_aggression_war_discontent_loss = yes
 
-		# if = {
-			# limit = { # Major News
-				# NOT = { has_game_rule = no_news }
-			# }
-			# every_player = { #Global News Announcement
-				# trigger_event = news_event.0013
-			# }
-		# }
 		# EP3: note gold gained from military assistance/join war contracts and their war contribution threshold
 		laamp_as_mercenary_payout_tooltip_effect = yes
 	}
@@ -6321,6 +6313,7 @@ restore_gondor_cb = { # Liberation of Gondor cb
 	use_de_jure_wargoal_only = yes
 	
 	attacker_wargoal_percentage = 0.8
+	should_show_war_goal_subview = yes
 }
 
 ### Stormhost Tulwangi revolt war ###
@@ -6841,29 +6834,50 @@ lotr_valinor_invasion_cb = {
 	}
 	
 	on_victory = {
-		# Legitimacy
-		if = {
-			limit = { scope:attacker = { NOT = { has_title = title:e_eonwe_host } } }
-			scope:attacker = { get_title = title:e_eonwe_host }
+		create_title_and_vassal_change = {
+			type = conquest
+			save_scope_as = change
+			add_claim_on_loss = yes
 		}
+		scope:defender = {
+			every_held_title = {
+				limit = {
+					tier > tier_barony
+					any_in_de_jure_hierarchy = {
+						save_temporary_scope_as = check_title
+						any_in_list = {
+							list = target_titles
+							this.empire = scope:check_title.empire
+						}
+					}
+				}
+				change_title_holder = {
+					holder = scope:attacker
+					change = scope:change
+				}
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+
 		add_legitimacy_attacker_victory_effect = yes
 
 		scope:attacker = { show_pow_release_message_effect = yes }
 
-		scope:attacker = {
-			create_title_and_vassal_change = {
-				type = conquest
-				save_scope_as = change
-				add_claim_on_loss = yes
+		hidden_effect = {
+			scope:attacker = {
+				create_title_and_vassal_change = {
+					type = conquest
+					save_scope_as = change
+					add_claim_on_loss = yes
+				}
+				every_in_list = {
+					list = target_titles
+					empire = {
+						valinorean_invasion_settle_local_people_effect = yes
+					}
+				}
+				resolve_title_and_vassal_change = scope:change
 			}
-
-			every_in_list = {
-				list = target_titles
-				save_scope_as = targeted_title
-				valinorean_invasion_settle_local_people_effect = yes
-			}
-			
-			resolve_title_and_vassal_change = scope:change
 		}
 
 		save_scope_value_as = {
@@ -6891,6 +6905,11 @@ lotr_valinor_invasion_cb = {
 
 		# EP3: note gold gained from military assistance/join war contracts and their war contribution threshold
 		laamp_as_mercenary_payout_tooltip_effect = yes
+
+		scope:attacker = {
+			get_title = title:e_eonwe_host
+			set_primary_title_to = title:e_eonwe_host
+		}
 	}
 
 	on_white_peace_desc = { desc = WHITE_PEACE_DISABLED }
@@ -6921,7 +6940,7 @@ lotr_valinor_invasion_cb = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 
 		# Legitimacy
-		add_legitimacy_attacker_defeat_effect = yes
+		# add_legitimacy_attacker_defeat_effect = yes
 		
 		# Prestige loss for the attacker
 		scope:attacker = {
@@ -6932,20 +6951,41 @@ lotr_valinor_invasion_cb = {
 				value = major_prestige_value
 				multiply = -1.0
 			}
-			destroy_title = title:e_thon_an_kharlokh
+			hidden_effect = { destroy_title = title:e_eonwe_host }
+			destroy_laamp_effect = { ADVENTURER = scope:attacker }
+			every_courtier_or_guest = {
+				limit = { is_elf = yes }
+				add_trait = sailed_west
+				if = {
+					limit = { has_variable = override_valinor_trigger }
+					remove_variable = override_valinor_trigger
+				}
+                set_employer = title:k_tirion.holder
+                set_location = title:k_tirion.holder.location
+			}
+			every_knight = {
+				limit = { is_elf = yes }
+				add_trait = sailed_west
+				if = {
+					limit = { has_variable = override_valinor_trigger }
+					remove_variable = override_valinor_trigger
+				}
+                set_employer = title:k_tirion.holder
+                set_location = title:k_tirion.holder.location
+			}
 		}
 
 		# Prestige for Defender
 		scope:defender = {
 			add_prestige_war_defender_effect = {
-				PRESTIGE_VALUE = major_prestige_value
+				PRESTIGE_VALUE = 2500
 			}
 		}
 
 		# Allies on both sides get full prestige value for helping in the war, based on their war participation.
 		modify_allies_of_participants_fame_values = {
 			WINNER = scope:defender
-			FAME_BASE = medium_prestige_value
+			FAME_BASE = 1250
 			IS_RELIGIOUS_WAR = no
 			WINNER_ALLY_FAME_SCALE = 1
 			LOSER_ALLY_FAME_SCALE = 1
@@ -7391,3 +7431,255 @@ angle_rhudaur_invasion_war = {
 
 	max_ai_diplo_distance_to_title = 1000
 }
+
+#####################
+### T.A. 2754 CBs ###
+#####################
+
+lotr_harrying_of_the_coasts_cb = {
+	group = invasion
+
+	combine_into_one = yes
+	should_show_war_goal_subview = yes
+	mutually_exclusive_titles = { always = yes }
+	
+	allowed_for_character = {
+		always = no
+	}
+	target_titles = neighbor_land_or_water
+	target_title_tier = all
+	target_de_jure_regions_above = yes
+	ignore_effect = change_title_holder
+	
+	on_declaration = {
+		on_declared_war = yes
+    }
+	on_victory_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:attacker = { is_local_player = yes } }
+				desc = lotr_harrying_of_the_coasts_cb_victory_desc_attacker
+			}
+			desc = invasion_war_victory_desc
+		}
+	}
+	on_victory = {
+		add_legitimacy_attacker_victory_effect = yes
+ 		every_in_list = {
+ 			list = target_titles
+ 			save_scope_as = raid_county
+ 			# Set raided province modifier
+ 			# Find province for building destruction
+ 			ordered_county_province = {
+ 				order_by = num_buildings
+ 				random = {
+ 					chance = 35
+ 					modifier = { factor = destroy_building_soldier_multiplier_value } # chance increases with more soldiers
+ 					modifier = { add = destroy_building_development_multiplier_value } # chance increases with development
+ 					custom_tooltip = destroy_random_building_tt
+ 					destroy_random_building_variable_effect = yes
+ 				}
+ 			}
+ 		}
+
+ 		hidden_effect = {
+ 			scope:attacker = { show_pow_release_message_effect = yes }
+ 			scope:defender = {
+				title:k_anorien.de_jure_liege = {
+					every_de_jure_county = {
+						limit = {
+							is_wastelands = no
+							tier > tier_barony
+							is_coastal_county = yes
+						}
+						add_to_list = county_titles
+					}
+				}
+				every_in_list = {
+					list = county_titles
+					decrease_county_development = { COUNTY = county }
+				}
+ 			}
+ 		}
+		hidden_effect = {
+            scope:attacker = {
+                trigger_event = harad.2002
+            }
+		}
+
+ 		show_as_tooltip = {
+ 			create_title_and_vassal_change = {
+ 				type = conquest
+				save_scope_as = change
+ 				add_claim_on_loss = yes
+ 			}
+ 			every_in_list = {
+ 				list = target_titles
+ 				change_title_holder = {
+ 					holder = scope:attacker
+ 					change = scope:change
+ 				}
+ 			}
+ 			resolve_title_and_vassal_change = scope:change
+		}
+
+ 		# Prestige Progress for the Attacker
+ 		every_in_list = {
+ 			list = target_titles
+ 			scope:attacker = {
+ 				add_prestige_experience = miniscule_prestige_value
+ 			}
+ 		}
+
+ 		# Prestige for the attacker's war allies
+ 		add_from_contribution_attackers = {
+ 			prestige = minor_prestige_value
+ 			opinion = {
+ 				modifier = contributed_in_war
+ 			}
+ 		}
+
+ 		# Prestige for the defender's war allies
+ 		add_from_contribution_defenders = {
+			prestige = minor_prestige_value
+ 			opinion = {
+ 				modifier = contributed_in_war
+ 			}
+ 		}
+
+ 		# Break alliances now out of diplo range
+ 		if = {
+ 			limit = {
+ 				scope:attacker = {
+ 					any_ally = {
+ 						NOT = { in_diplomatic_range = scope:attacker }
+ 					}
+ 				}
+ 			}
+ 			scope:attacker = {
+ 				every_ally = {
+ 					limit = {
+ 						NOT = { in_diplomatic_range = scope:attacker }
+ 					}
+ 					break_alliance = scope:attacker
+ 				}
+ 			}
+ 		}
+
+ 		# Truce
+ 		add_truce_attacker_victory_effect = yes
+	}
+	on_white_peace_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:defender = { is_local_player = yes } }
+				desc = invasion_war_white_peace_desc_defender
+			}
+			desc = invasion_war_white_peace_desc
+		}
+	}
+	
+	on_white_peace = {
+		scope:attacker = { show_pow_release_message_effect = yes }
+
+		# Prestige for the attacker's war allies
+		add_from_contribution_attackers = {
+			prestige = major_prestige_value
+			opinion = {
+				modifier = contributed_in_war
+			}
+		}
+
+		# Prestige for the defender's war allies
+		add_from_contribution_defenders = {
+			prestige = major_prestige_value
+			opinion = {
+				modifier = contributed_in_war
+			}
+		}
+		
+		# Truce
+		add_truce_white_peace_effect = yes
+
+		# EP3: note gold gained from military assistance/join war contracts and their war contribution threshold
+		
+		laamp_as_mercenary_payout_tooltip_effect = yes
+	}
+	on_invalidated_desc = msg_invalidate_war_title
+
+	on_defeat_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:defender = { is_local_player = yes } }
+				desc = lotr_harrying_of_the_coasts_cb_defeat_defender_desc
+			}
+			triggered_desc = {
+				trigger = { scope:attacker = { is_local_player = yes } }
+				desc = lotr_harrying_of_the_coasts_cb_defeat_attacker_desc
+			}
+			desc = invasion_war_white_peace_desc
+		}
+	}
+	on_defeat = {
+ 		# Prestige loss for the attacker
+ 		scope:attacker = {
+ 			pay_short_term_gold_reparations_effect = {
+ 				GOLD_VALUE = 3
+ 			}
+ 			add_prestige = {
+ 				value = medium_prestige_value
+ 				multiply = -1.0
+ 			}
+ 		}
+
+ 		# Prestige for Defender
+ 		scope:defender = {
+ 			add_prestige_war_defender_effect = {
+ 				PRESTIGE_VALUE = medium_prestige_value
+ 			}
+ 		}
+
+ 		# Prestige for the attacker's war allies
+ 		add_from_contribution_attackers = {
+ 			prestige = minor_prestige_value
+ 			opinion = {
+ 				modifier = contributed_in_war
+ 			}
+ 		}
+
+ 		# Prestige for the defender's war allies
+ 		add_from_contribution_defenders = {
+ 			prestige = minor_prestige_value
+ 			opinion = {
+ 				modifier = contributed_in_war
+ 			}
+ 		}
+
+ 		add_truce_attacker_defeat_effect = yes
+
+ 		scope:attacker = {
+ 			save_temporary_scope_as = loser
+ 		}
+
+ 		on_lost_aggression_war_discontent_loss = yes
+ 	}
+	
+	transfer_behavior = transfer
+	
+	on_primary_attacker_death = inherit
+	on_primary_defender_death = inherit
+	
+	attacker_allies_inherit = yes
+	defender_allies_inherit = yes
+
+	war_name = "HARRYING_OF_THE_COASTS_WAR_NAME"
+	war_name_base = "HARRYING_OF_THE_COASTS_WAR_NAME"
+	cb_name = "HARRYING_OF_THE_COASTS_WAR_NAME"
+
+	interface_priority = 75
+	
+	use_de_jure_wargoal_only = yes
+	
+	attacker_wargoal_percentage = 0.8
+}
+

@@ -38,7 +38,7 @@ lineofelendil = {
 			learn_language = language_sindarin
 			learn_language = language_quenya
 		}	
-	    give_nickname = nick_the_tall
+	    give_nickname = nick_the_tall_dunedain
         effect = {
             add_character_flag = {
                 flag = had_nickname_event
@@ -1290,6 +1290,8 @@ lineisildur37 = {
 
 	father = lineisildur36			
 	mother = lineisildur36wife
+
+    sexuality = heterosexual
 				
 	trait = brave
 	trait = patient 
@@ -1330,6 +1332,7 @@ lineisildur37 = {
 				value = 50
 			}
 		}
+        set_relation_friend = { reason = friend_pedagogy target = character:linefinwe27 }
 		# give_nickname = nick_the_ambusher # Trig note - lets not give nicknames to cannon characters that don't have them. 
 		# effect = {
 		# 	add_character_flag = had_nickname_event
@@ -1346,9 +1349,12 @@ lineisildur38 = {
 	dynasty_house = house_isildur			
 	religion = faith_edain
 	culture = dunedain_ranger
+	dna = lineisildur38_dna
 
 	father = lineisildur37			
 	mother = linemelosse41sister
+
+    sexuality = heterosexual
 				
 	trait = blood_of_numenor_6
 	trait = diligent
@@ -1374,12 +1380,56 @@ lineisildur38 = {
 
     6786.1.1 = {
         add_spouse = lineoforodhos65sister
+        set_relation_soulmate = character:lineoforodhos65sister
+        effect = {
+            set_relation_friend = { reason = friend_pedagogy target = character:linefinwe27 }
+        }
     }
  
 	6881.1.1 = {
 		death = { death_reason = death_battle } 
 	}
 }
+
+lineisildur38sister = {
+    name = Aranel
+    female = yes
+
+    dynasty_house = house_isildur
+    religion = faith_edain
+    culture = dunedain_ranger
+	dna = lineisildur38sister_dna
+
+    father = lineisildur37
+    mother = linemelosse41sister
+
+    sexuality = heterosexual
+
+    trait = brave
+    trait = stubborn
+    trait = patient
+
+    trait = beauty_good_2
+
+    diplomacy = 6
+    martial = 6
+    stewardship = 10
+    intrigue = 9
+    learning = 11
+    prowess = 9
+
+    trait = education_learning_3
+
+    trait = blood_of_numenor_6
+
+    6730.4.9 = {
+        birth = yes
+    }
+    6910 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
 lineisildur39 = {
 	name = Argonui			
  
@@ -1745,10 +1795,26 @@ linegilraen6 = {
 	religion = faith_edain
 	culture = dunedain_ranger
 
-	father = linegilraen7			
+	father = linegilraen7	
+    mother = lineoftarmacilin78			
  
-				
- 
+    sexuality = heterosexual
+
+	trait = physique_good_2
+    trait = beauty_good_2
+
+    trait = brave
+    trait = forgiving
+    trait = honest
+
+    diplomacy = 7
+    martial = 9
+    stewardship = 8
+    intrigue = 5
+    learning = 7
+    prowess = 10    			
+    
+    trait = education_martial_3
 
 	trait = blood_of_numenor_5
 	6732.1.1 = {
@@ -1775,10 +1841,26 @@ linegilraen61 = {
 	religion = faith_edain
 	culture = dunedain_ranger
 
-	father = linegilraen7			
+    sexuality = heterosexual
+
+	father = linegilraen7	
+    mother = lineoftarmacilin78		
  
-				
- 
+	trait = intellect_good_1
+    trait = beauty_good_1
+
+    trait = diligent
+    trait = temperate
+    trait = shy
+
+    diplomacy = 8
+    martial = 5	
+    stewardship = 10
+    intrigue = 7
+    learning = 7
+    prowess = 9
+
+    trait = education_stewardship_3
 
 	trait = blood_of_numenor_5
 	6746.8.12 = {
@@ -1804,10 +1886,24 @@ linegilraen7 = {
 	religion = faith_edain
 	culture = dunedain_ranger
 
+    sexuality = heterosexual
+
 	father = linegilraen8			
  
-				
- 
+	trait = physique_good_1
+
+    trait = brave
+    trait = wrathful
+    trait = stubborn
+
+    diplomacy = 7
+    martial = 10
+    stewardship = 8
+    intrigue = 6
+    learning = 7
+    prowess = 10
+	
+    trait = education_martial_4
 
 	trait = blood_of_numenor_5
 	6656.1.1 = {
@@ -1816,6 +1912,10 @@ linegilraen7 = {
 			learn_language = language_sindarin
 		}
 	}
+
+    6730.1.1 = {
+        add_spouse = lineoftarmacilin78
+    } 
 
     6786.1.1 = {
         employer = lineisildur37
@@ -2101,18 +2201,64 @@ linehalbarad7 = {
 
 	father = linehalbarad6			
  
-				
- 
-
+	trait = brave
+	trait = impatient
+	trait = temperate
 	trait = blood_of_numenor_5
+	trait = education_martial_3
+	
+	diplomacy = 8 
+	martial = 10 
+	stewardship = 7 
+	intrigue = 7 
+	learning = 5 
+	prowess = 9
+	
 	6923.1.1 = {
 		birth = yes	
 		effect = {
 			learn_language = language_sindarin
 		}	
 	}
+	
+	6947.4.7 = {
+		add_spouse = linehalbarad7wife
+	}
+	
 	6998.1.1 = {
 		death = { death_reason = death_accident } 
+	}
+}
+
+linehalbarad7wife = {
+	name = Turwen
+	female = yes
+ 		
+	religion = faith_edain
+	culture = dunedain_ranger	
+ 
+	trait = diligent
+	trait = humble
+	trait = temperate
+	trait = blood_of_numenor_4
+	trait = education_diplomacy_2
+	
+	diplomacy = 8 
+	martial = 2 
+	stewardship = 6
+	intrigue = 4 
+	learning = 8 
+	prowess = 2
+	
+	6927.4.12 = {
+		birth = yes	
+		effect = {
+			learn_language = language_sindarin
+		}	
+	}
+
+	7030.3.10 = {
+		death = { death_reason = death_vanished } 
 	}
 }
  
@@ -2125,21 +2271,28 @@ linehalbarad8 = {
 
 	father = linehalbarad6			
  
-				
- 
-
 	trait = blood_of_numenor_5
+	
 	6929.1.1 = {
 		birth = yes	
 		effect = {
 			learn_language = language_sindarin
 		}	
 	}
-	7031.1.1 = {
+	
+	6958.5.8 = {
+		add_spouse = lineofciryon59sister
+	}
+	
+	7030.1.1 = {
+		employer = linehalbarad9
+	}
+	
+	7101.5.29 = {
 		death = { death_reason = death_natural_causes } 
 	}
 }
- 
+
 linehalbarad9 = {
 	name = Halbarad ## The Ranger / Grey Company / Friend of Aragorn			
  
@@ -2150,7 +2303,7 @@ linehalbarad9 = {
 	dna = halbarad_dna
 
 	father = linehalbarad7			
- 
+	mother = linehalbarad7wife
 				
 	trait = education_martial_3			
 	trait = physique_good_2			
@@ -2200,8 +2353,8 @@ linehalbarad10 = {
 	dna = elegost_dna
 
 	father = linehalbarad7			
- 
-				
+	mother = linehalbarad7wife
+	
 	trait = education_martial_3			
 	trait = physique_good_1			
 	trait = brave			
@@ -2245,7 +2398,7 @@ linehalbarad11 = {
 	culture = dunedain_ranger
 
 	father = linehalbarad8
- 
+	mother = lineofciryon59sister
 		
 	trait = education_learning_3			
 	trait = beauty_good_2			
@@ -2377,6 +2530,83 @@ linehalbarad14 = {
 		death = { death_reason = death_battle }	
 	}
 }
+
+linehalbarad15 = {
+	name = Golodir			
+ 
+	dynasty_house = house_gilraen			
+	religion = faith_edain
+	culture = dunedain_ranger
+
+	father = linehalbarad8
+    mother = lineofciryon59sister
+ 
+	sexuality = heterosexual
+
+	trait = education_martial_4		
+	trait = physique_good_1		
+	trait = vengeful			
+	trait = wrathful			
+	trait = brave			
+	trait = blood_of_numenor_5
+	
+	6969.6.9 = {
+		birth = yes		
+		effect = {
+			learn_language = language_sindarin
+		}			
+	}
+	
+	6999.9.9 = {
+		add_spouse = linelomear33sister
+	}
+	
+	7030.1.1 = {
+		employer = linehalbarad9
+	}
+	
+	7122.2.12 = {
+		death = { death_reason = death_natural_causes }	
+	}
+}
+
+linehalbarad16 = {
+	name = Lorniel
+	female = yes
+ 
+	dynasty_house = house_gilraen			
+	religion = faith_edain
+	culture = dunedain_ranger
+
+	father = linehalbarad15
+    mother = linelomear33sister
+ 
+	sexuality = heterosexual
+
+	trait = education_martial_4		
+	trait = beauty_good_1
+	trait = physique_good_1
+	trait = patient			
+	trait = forgiving			
+	trait = brave			
+	trait = blood_of_numenor_5
+	
+	7001.10.10 = {
+		birth = yes		
+		effect = {
+			learn_language = language_sindarin
+		}			
+	}
+	
+	7030.1.1 = {
+		employer = linehalbarad9
+	}
+	
+	7134.4.14 = {
+		death = { death_reason = death_natural_causes }	
+	}
+}
+
 
 # House of Dagniron - House of dagnir
 lineofblackbird1 = {
@@ -4947,6 +5177,8 @@ lineoftarmea63 = {
     trait = ambitious
     trait = humble
 
+    trait = intellect_good_1
+
     diplomacy = 2
     martial = 9
     stewardship = 2
@@ -4971,6 +5203,46 @@ lineoftarmea63 = {
     }
 }
 
+lineoftarmea63sister = {
+    name = Eariel
+    female = yes
+	
+	dynasty = dynasty_tarmea
+    religion = faith_edain
+    culture = dunedain_ranger
+	
+	father = lineoftarmea61
+    mother = lineoftarmea62
+
+    sexuality = heterosexual
+
+    trait = blood_of_numenor_4
+    
+    trait = beauty_good_1
+    trait = intellect_good_1
+
+    trait = wrathful
+    trait = content
+    trait = greedy
+
+    diplomacy = 8
+    martial = 5
+    stewardship = 4
+    intrigue = 9
+    learning = 3
+    prowess = 4
+
+    trait = education_intrigue_2
+
+    6723.2.9 = {
+        birth = yes
+    }
+
+    6820.3.12 = {
+        death = { death_reason = death_battle }
+    }
+}
+
 lineoftarmea64 = {
     name = Emeldire
     female = yes
@@ -4980,11 +5252,11 @@ lineoftarmea64 = {
 
     sexuality = heterosexual
 
-    
-
     trait = gregarious
-    trait = gluttonous
+    trait = patient
     trait = content
+
+    trait = beauty_good_1
 
     diplomacy = 6
     martial = 6
@@ -5018,11 +5290,11 @@ lineoftarmea65 = {
 
     sexuality = heterosexual
 
-    
-
     trait = chaste
     trait = stubborn
     trait = callous
+    
+    trait = intellect_good_2
 
     diplomacy = 6
     martial = 5
@@ -5044,6 +5316,83 @@ lineoftarmea65 = {
     }
 
     6905.6.26 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoftarmea65brother = {
+    name = Aldamir
+
+    dynasty = dynasty_tarmea
+    religion = faith_edain
+    culture = dunedain_ranger
+    
+    father = lineoftarmea63
+    mother = lineoftarmea64
+    
+    sexuality = heterosexual
+
+    trait = just
+    trait = brave
+    trait = stubborn
+
+    trait = intellect_good_1
+
+    diplomacy = 6
+    martial = 10
+    stewardship = 7
+    intrigue = 5
+    learning = 4
+    prowess = 8
+
+    trait = education_martial_4
+
+    trait = blood_of_numenor_4
+
+    6758.7.20 = {
+        birth = yes
+    }
+
+    6910.1.5 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoftarmea65sister = {
+    name = Yavaniel
+    female = yes
+
+    dynasty = dynasty_tarmea
+    religion = faith_edain
+    culture = dunedain_ranger
+    
+    father = lineoftarmea63
+    mother = lineoftarmea64
+    
+    sexuality = heterosexual
+
+    trait = patient
+    trait = diligent
+    trait = shy
+    
+    trait = beauty_good_1
+    trait = intellect_good_1
+
+    diplomacy = 6
+    martial = 4
+    stewardship = 7
+    intrigue = 5
+    learning = 10
+    prowess = 8
+
+    trait = education_learning_3
+
+    trait = blood_of_numenor_4
+
+    6760.6.1 = {
+        birth = yes
+    }
+    6923.1.21 = {
         death = { death_reason = death_natural_causes }
     }
 }
@@ -9819,7 +10168,7 @@ lineoforodhos65 = {
     }
 
     6760.4.21 = {
-        add_spouse = lineoforodhos66
+        add_spouse = lineoftarmea63sister
     }
 
     6820.3.12 = {
@@ -9874,46 +10223,6 @@ lineoforodhos65sister = {
     }
 }
 
-lineoforodhos66 = {
-    name = Eariel
-    female = yes
-	
-	dynasty = dynasty_tarmea
-    religion = faith_edain
-    culture = dunedain_ranger
-	
-	father = lineoftarmea61
-    mother = lineoftarmea62
-
-    sexuality = heterosexual
-
-    trait = blood_of_numenor_4
-    
-    trait = beauty_good_1
-    trait = intellect_good_1
-
-    trait = wrathful
-    trait = content
-    trait = greedy
-
-    diplomacy = 8
-    martial = 5
-    stewardship = 4
-    intrigue = 9
-    learning = 3
-    prowess = 4
-
-    trait = education_intrigue_2
-
-    6723.2.9 = {
-        birth = yes
-    }
-
-    6820.3.12 = {
-        death = { death_reason = death_battle }
-    }
-}
-
 lineoforodhos67 = {
     name = Thalion
 
@@ -9922,7 +10231,7 @@ lineoforodhos67 = {
     culture = dunedain_ranger
 
     father = lineoforodhos65
-    mother = lineoforodhos66
+    mother = lineoftarmea63sister
 
     sexuality = heterosexual
 
@@ -9962,7 +10271,7 @@ lineoforodhos67sister = {
     culture = dunedain_ranger
 
     father = lineoforodhos65
-    mother = lineoforodhos66
+    mother = lineoftarmea63sister
 
     sexuality = heterosexual
 
@@ -23084,7 +23393,7 @@ lineofcadetgalathir26 = {
 }
 
 lineofcadetgalathir27 = {
-    name = Ulfang
+    name = Alfang
 
     dynasty_house = house_cadet_galathir
     religion = faith_edain
@@ -37743,6 +38052,7 @@ linemelosse41sister = {
     dynasty = dynasty_melosse
     religion = faith_edain
     culture = dunedain_ranger
+	dna = galadloriel_dna
 
     father = linemelosse39
     mother = linemelosse40
@@ -37818,7 +38128,7 @@ linemelosse43 = {
 
     sexuality = heterosexual
 
-    trait = blood_of_numenor_4
+    trait = blood_of_numenor_5
 
     trait = lazy
     trait = content
@@ -37836,14 +38146,8 @@ linemelosse43 = {
     6733.3.28 = {
         birth = yes
     }
-	
-	6785.6.12 = {
-		effect = {
-            create_betrothal = character:linelomear40
-		} 
-	}
 
-    6790.1.18 = {
+    6786.12.1 = {
         add_spouse = linelomear40
     }
 
@@ -47271,13 +47575,14 @@ lineofgirithlin89 = {
 
     trait = education_martial_4
 
+    trait = physique_good_1
 
 	trait = blood_of_numenor_4
     6647.3.24 = {
         birth = yes
     }
 
-    6697.4.16 = {
+    6710.4.16 = {
         add_spouse = lineofgirithlin90
     }
 
@@ -47316,7 +47621,7 @@ lineofgirithlin90 = {
 
 
 	trait = blood_of_numenor_4
-    6652.3.9 = {
+    6675.3.9 = {
         birth = yes
     }
 
@@ -47341,7 +47646,7 @@ lineofgirithlin91 = {
 
     sexuality = heterosexual
 
-    
+    trait = physique_good_1    
 
     trait = ambitious
     trait = diligent
@@ -47391,6 +47696,8 @@ lineofgirithlin911 = {
     trait = patient
     trait = diligent
     trait = vengeful
+
+    trait = beauty_good_1
 
     diplomacy = 4
     martial = 6
@@ -56218,10 +56525,10 @@ lineoftarmacilin77 = {
     trait = intellect_good_2
 
     diplomacy = 5
-    martial = 5
-    stewardship = 5
-    intrigue = 4
-    learning = 7
+    martial = 7
+    stewardship = 6
+    intrigue = 5
+    learning = 9
     prowess = 7
 
     trait = education_learning_3
@@ -56231,7 +56538,7 @@ lineoftarmacilin77 = {
     }
 
     6735.4.24 = {
-        add_spouse = lineoftarmacilin78
+        add_spouse = lineoflomear25sister
     }
 
     6845.5.16 = {
@@ -56240,40 +56547,45 @@ lineoftarmacilin77 = {
 }
 
 lineoftarmacilin78 = {
-    name = Yavien
+    name = Elenwing
     female = yes
 
-    dynasty = dynasty_lomear
+    dynasty_house = house_tarmacilin
     religion = faith_edain
     culture = dunedain_ranger
 
-    father = linelomear23
-    mother = linelomear24
+    father = lineoftarmacilin75
+    mother = lineoftarmacilin76
 
     sexuality = heterosexual
 
     trait = blood_of_numenor_4
 
-    trait = beauty_good_3
-
-    trait = calm
+    trait = just
+    trait = patient
     trait = diligent
-    trait = temperate
 
-    diplomacy = 8
-    martial = 4
+    trait = intellect_good_1
+    trait = physique_good_1
+
+    diplomacy = 6
+    martial = 8
     stewardship = 5
-    intrigue = 7
-    learning = 1
-    prowess = 7
+    intrigue = 5
+    learning = 7
+    prowess = 9
 
-    trait = education_diplomacy_2
+    trait = education_martial_2
 
-    6697.2.16 = {
+    6690.2.10 = {
         birth = yes
     }
 
-    6856.9.3 = {
+    6786.1.1 = {
+        employer = lineisildur37
+    }
+
+    6851.3.16 = {
         death = { death_reason = death_natural_causes }
     }
 }
@@ -56286,7 +56598,7 @@ lineoftarmacilin79 = {
     culture = dunedain_ranger
 
     father = lineoftarmacilin77
-    mother = lineoftarmacilin78
+    mother = lineoflomear25sister
 
     sexuality = heterosexual
 
@@ -56325,7 +56637,7 @@ lineoftarmacilin80 = {
     culture = dunedain_ranger
 
     father = lineoftarmacilin77
-    mother = lineoftarmacilin78
+    mother = lineoflomear25sister
 
     sexuality = heterosexual
 
@@ -68224,7 +68536,7 @@ lineofluthcelos18 = {
 
 
 ############################################################################################
-### Noble Aranborionath, rulers of Evendim, descended from a younger brother or Aranarth ###
+### Noble Aranborionath, rulers of Evendim, descended from a younger brother of Aranarth ###
 ############################################################################################
 
 
@@ -68702,7 +69014,7 @@ lineofaranbor13 = {
         birth = yes
     }
 
-    6794.10.3 = {
+    6784.10.3 = {
         death = { death_reason = death_natural_causes }
     }
 }
@@ -68736,7 +69048,7 @@ lineofaranbor14 = { #sister of lineofaranbor13
 
 
 	trait = blood_of_numenor_4
-    6570.5.2 = {
+    6580.5.2 = {
         birth = yes
     }
 	
@@ -68782,7 +69094,7 @@ lineofaranbor14b = {
 }
 
 lineofaranbor15 = { #sister-son of lineofaranbor13
-    name = Castamir
+    name = Caramir # Long winter start date ruler
 
     dynasty = dynasty_aranbor
     religion = faith_edain
@@ -68793,8 +69105,8 @@ lineofaranbor15 = { #sister-son of lineofaranbor13
 
     
 
-    trait = vengeful
-    trait = greedy
+    trait = stubborn
+    trait = compassionate
     trait = arrogant
 
     diplomacy = 5
@@ -68815,12 +69127,46 @@ lineofaranbor15 = { #sister-son of lineofaranbor13
     6761.1.8 = {
         add_spouse = lineofaranbor16
     }
-    
-    6786.1.1 = {
-        employer = lineofaranbor13
-    }
 
     6913.7.2 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofaranbor15sister = {
+    name = Indil
+    female = yes
+
+    dynasty = dynasty_aranbor
+    religion = faith_edain
+    culture = uialdain
+
+    father = lineofaranbor14b
+    mother = lineofaranbor14
+
+    trait = just
+    trait = ambitious
+    trait = forgiving
+
+    diplomacy = 4
+    martial = 5
+    stewardship = 3
+    intrigue = 10
+    learning = 3
+    prowess = 4
+
+    trait = education_intrigue_3
+    
+    trait = blood_of_numenor_4
+
+    6715.1.28 = {
+        birth = yes
+    }
+
+    6786.1.1 = {
+        employer = lineofaranbor15
+    }
+    6889.12.29 = {
         death = { death_reason = death_natural_causes }
     }
 }
@@ -68854,7 +69200,7 @@ lineofaranbor16 = {
     }
 
     6786.1.1 = {
-        employer = lineofaranbor13
+        employer = lineofaranbor15
     }
 
     6925.11.7 = {
@@ -74516,7 +74862,7 @@ lineofciryon51 = {
         add_spouse = lineofciryon52
     }
 
-    6769.4.21 = {
+    6789.4.21 = {
         death = { death_reason = death_raid }
     }
 }
@@ -74564,7 +74910,7 @@ lineofciryon53 = {
     father = lineofciryon51
     mother = lineofciryon52
 
-    
+    sexuality = heterosexual
 
     trait = stubborn
     trait = content
@@ -74590,6 +74936,43 @@ lineofciryon53 = {
     }
 
     6917.9.25 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofciryon53sister = {
+    name = Halwen
+    female = yes
+
+    dynasty_house = house_ciryon
+    religion = faith_edain
+    culture = uialdain
+
+    father = lineofciryon51
+    mother = lineofciryon52
+
+    sexuality = heterosexual
+
+    trait = brave
+    trait = temperate
+    trait = shy
+
+    diplomacy = 5
+    martial = 8
+    stewardship = 5
+    intrigue = 3
+    learning = 4
+    prowess = 4
+
+    trait = education_martial_2
+
+	trait = blood_of_numenor_4
+
+    6753.1.21 = {
+        birth = yes
+    }
+
+    6910.5.1 = {
         death = { death_reason = death_natural_causes }
     }
 }
@@ -74809,6 +75192,44 @@ lineofciryon59 = {
     }
 
     7102.4.2 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofciryon59sister = {
+    name = Faelneth
+	female = yes
+
+    dynasty_house = house_ciryon
+    religion = faith_edain
+    culture = uialdain
+
+    father = lineofciryon57
+    mother = lineofciryon58
+
+    trait = humble
+    trait = just
+    trait = shy
+
+    diplomacy = 4
+    martial = 2
+    stewardship = 7
+    intrigue = 4
+    learning = 9
+    prowess = 2
+
+    trait = education_learning_3
+	trait = blood_of_numenor_3
+	
+    6934.4.4 = {
+        birth = yes
+    }
+	
+	7033.1.1 = {
+		employer = linehalbarad9
+	}
+
+    7111.11.11 = {
         death = { death_reason = death_natural_causes }
     }
 }
@@ -78127,7 +78548,7 @@ lineofbraigcerch89 = {
         birth = yes
     }
 
-    6793.8.20 = {
+    6783.8.20 = {
         add_spouse = lineofbraigcerch90
     }
 
@@ -81028,7 +81449,7 @@ lineofnoirinin72 = {
 }
 
 lineofnoirinin73 = {
-    name = Ulfang
+    name = Alfang
 
     dynasty = dynasty_noirinin
     religion = faith_edain
@@ -83493,11 +83914,11 @@ lineofsilivnir53 = {
     father = lineofsilivnir51
     mother = lineofsilivnir52
 
-    
+    sexuality = heterosexual
 
-    trait = gregarious
-    trait = impatient
-    trait = greedy
+    disallow_random_traits = yes
+
+    trait = bossy
 
     diplomacy = 6
     martial = 7
@@ -83519,6 +83940,42 @@ lineofsilivnir53 = {
     }
 
     6923.8.20 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofsilivnir53sister = {
+    name = Tarandis
+    female = yes
+
+    dynasty = dynasty_silivnir
+    religion = faith_edain
+    culture = uialdain
+
+    father = lineofsilivnir51
+    mother = lineofsilivnir52
+
+    sexuality = heterosexual
+
+    disallow_random_traits = yes
+
+    trait = curious
+
+    diplomacy = 6
+    martial = 5
+    stewardship = 7
+    intrigue = 4
+    learning = 6
+    prowess = 5 
+
+    trait = education_learning_2
+
+    trait = blood_of_numenor_3
+
+    6778.1.20 = {
+        birth = yes
+    }  
+    6925.2.1 = {
         death = { death_reason = death_natural_causes }
     }
 }
@@ -90278,28 +90735,28 @@ lineendril69 = {
 ### House Lómëar, of Fornost ###
 ###############################
 linelomear1 = {
-    name = Golasgil
+    name = Laurendil
 
-    dynasty = dynasty_lomear
+    dynasty = dynasty_lomear # ennobled in the final days of Arnor's wars against Angmar, fighting alongside Arvedui and later Earnur's host
     religion = faith_edain
     culture = dunedain_ranger
 
     sexuality = heterosexual
 
-    
-
-    trait = lazy
-    trait = paranoid
-    trait = arbitrary
+    trait = brave
+    trait = just
+    trait = wrathful
 
     diplomacy = 4
-    martial = 4
-    stewardship = 1
-    intrigue = 4
-    learning = 8
-    prowess = 2
+    martial = 9
+    stewardship = 5
+    intrigue = 6
+    learning = 3
+    prowess = 8
 
-    trait = education_learning_4
+    trait = education_martial_4
+	trait = strong
+	trait = gallant
 
 
 	trait = blood_of_numenor_5
@@ -90322,13 +90779,17 @@ linelomear2 = {
 
     religion = faith_edain
     culture = dunedain_ranger
+	dynasty_house = house_forovarne
+	
+	father = lineforovarne23
+    mother = lineforovarne24
 
     sexuality = heterosexual
 
     
 
-    trait = cynical
-    trait = craven
+    trait = temperate
+    trait = content
     trait = humble
 
     diplomacy = 4
@@ -90506,7 +90967,7 @@ linelomear6 = {
 }
 
 linelomear7 = {
-    name = Castarion
+    name = Castarion # led the resettlement of Fornost 
 
     dynasty = dynasty_lomear
     religion = faith_edain
@@ -90524,10 +90985,10 @@ linelomear7 = {
     trait = calm
     trait = honest
 
-    diplomacy = 4
+    diplomacy = 7
     martial = 6
     stewardship = 3
-    intrigue = 7
+    intrigue = 5
     learning = 6
     prowess = 5
 
@@ -91223,8 +91684,10 @@ linelomear25 = {
     
 
     trait = zealous
-    trait = greedy
-    trait = deceitful
+    trait = forgiving
+    trait = honest
+
+    trait = beauty_good_1
 
     diplomacy = 3
     martial = 6
@@ -91249,6 +91712,46 @@ linelomear25 = {
         death = { death_reason = death_natural_causes }
     }
 }
+
+lineoflomear25sister = {
+    name = Yavien
+    female = yes
+
+    dynasty = dynasty_lomear
+    religion = faith_edain
+    culture = dunedain_ranger
+
+    father = linelomear23
+    mother = linelomear24
+
+    sexuality = heterosexual
+
+    trait = blood_of_numenor_4
+
+    trait = beauty_good_3
+
+    trait = calm
+    trait = diligent
+    trait = temperate
+
+    diplomacy = 8
+    martial = 4
+    stewardship = 5
+    intrigue = 7
+    learning = 1
+    prowess = 7
+
+    trait = education_diplomacy_2
+
+    6697.2.16 = {
+        birth = yes
+    }
+
+    6856.9.3 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
 
 linelomear26 = {
     name = Maewiel
@@ -91300,9 +91803,11 @@ linelomear27 = {
 
     
 
-    trait = arbitrary
-    trait = deceitful
+    trait = just
+    trait = honest
     trait = fickle
+
+    trait = beauty_good_2
 
     diplomacy = 4
     martial = 5
@@ -91324,6 +91829,86 @@ linelomear27 = {
     }
 
     6910.7.28 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+linelomear27sister1 = {
+    name = Eledhwen
+    female = yes
+
+    dynasty = dynasty_lomear
+    religion = faith_edain
+    culture = dunedain_ranger
+
+    father = linelomear25
+    mother = linelomear26
+
+    sexuality = heterosexual
+
+    trait = compassionate
+    trait = brave
+    trait = stubborn
+
+    trait = beauty_good_3
+    trait = intellect_good_1
+
+    diplomacy = 4
+    martial = 10
+    stewardship = 3
+    intrigue = 5
+    learning = 3
+    prowess = 4
+
+    trait = education_martial_3
+
+    trait = blood_of_numenor_4
+
+    6764.12.9 = {
+        birth = yes
+    }
+
+    6921.1.7 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+linelomear27sister2 = {
+    name = Silmariel
+    female = yes
+
+    dynasty = dynasty_lomear
+    religion = faith_edain
+    culture = dunedain_ranger
+
+    father = linelomear25
+    mother = linelomear26
+
+    sexuality = heterosexual
+
+    trait = diligent
+    trait = temperate
+    trait = just
+
+    trait = beauty_good_2
+    trait = physique_good_1
+
+    diplomacy = 4
+    martial = 6
+    stewardship = 9
+    intrigue = 5
+    learning = 3
+    prowess = 4
+
+    trait = education_stewardship_3
+
+    trait = blood_of_numenor_4
+
+    6766.8.15 = {
+        birth = yes
+    }
+
+    6929.2.27 = {
         death = { death_reason = death_natural_causes }
     }
 }
@@ -91570,6 +92155,43 @@ linelomear33 = {
     }
 
     7109.6.27 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+linelomear33sister = {
+    name = Vana
+	female = yes
+
+    dynasty = dynasty_lomear
+    religion = faith_edain
+    culture = dunedain_ranger
+
+    father = linelomear31
+    mother = linelomear32
+
+    sexuality = heterosexual
+    
+	trait = physique_good_1
+    trait = humble
+    trait = just
+    trait = honest
+
+    diplomacy = 9
+    martial = 2
+    stewardship = 8
+    intrigue = 7
+    learning = 6
+    prowess = 3
+
+    trait = education_diplomacy_3
+	trait = blood_of_numenor_3
+	
+    6972.2.27 = {
+        birth = yes
+    }
+
+    7111.11.21 = {
         death = { death_reason = death_natural_causes }
     }
 }
@@ -92127,7 +92749,7 @@ linelomear47 = {
 ### Minor Dunedain Houses
 # House Artenosse
 lineartenosse1 = {
-    name = Aravorn
+    name = Aravorn # a young ranger and friend of Arassuil's son, raised to nobility as a close confidant of the young heir.
 
     dynasty = dynasty_artenosse
     religion = faith_edain
@@ -92139,7 +92761,7 @@ lineartenosse1 = {
 
     trait = content
     trait = brave
-    trait = vengeful
+    trait = gregarious
 
     diplomacy = 6
     martial = 4
@@ -92158,6 +92780,7 @@ lineartenosse1 = {
 	
 	6786.12.5 = {
 		employer = lineisildur37
+		set_relation_friend = { target = character:lineisildur38 }
 		effect = {
             create_betrothal = character:lineofgirithlin911
         }
@@ -92774,7 +93397,7 @@ lineartenosse13 = {
 
 # House Carnëyar
 linecarneyar1 = {
-    name = Oromendil
+    name = Oromendil # a leader among the wandering parties of rangers, having beaten back many an orc raid
 
     dynasty = dynasty_carneyar
     religion = faith_edain
@@ -92805,10 +93428,16 @@ linecarneyar1 = {
 
     6894.12.18 = {
         add_spouse = linecarneyar2
+		give_nickname = nick_orcsbane
+        effect = {
+            add_character_flag = {
+                flag = had_nickname_event
+            }
+        }
     }
 
     6941.6.5 = {
-        death = { death_reason = death_natural_causes }
+        death = { death_reason = death_battle }
     }
 }
 
@@ -93087,7 +93716,7 @@ linecarneyar8 = {
 
 # House Calinyar
 linecalinyar1 = {
-    name = Eradan
+    name = Eradan # rose to prominence in Bree for keeping the city supplied during the Fell Winter and after Tharbad was ruined
 
     dynasty = dynasty_calinyar 
     religion = faith_edain
@@ -93109,6 +93738,7 @@ linecalinyar1 = {
     prowess = 5
 
     trait = education_stewardship_3
+	trait = shrewd
 
 
 	trait = blood_of_numenor_4
@@ -98552,6 +99182,46 @@ lineforovarne53 = {
     }
 
     6907.6.15 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineforovarne53sister = {
+    name = Aerien
+    female = yes
+
+    dynasty_house = house_forovarne
+    religion = faith_edain
+    culture = dunedain_ranger
+
+    father = lineforovarne51
+    mother = lineofemeraya66
+
+    sexuality = heterosexual
+
+    trait = blood_of_numenor_4
+    trait = bossy
+
+    disallow_random_traits = yes
+
+    trait = just
+    trait = stubborn
+    trait = impatient
+
+    diplomacy = 5
+    martial = 6
+    stewardship = 10
+    intrigue = 6
+    learning = 8
+    prowess = 7
+
+    trait = education_stewardship_3
+
+    6772.12.1 = {
+        birth = yes
+    }
+
+    6930.2.5 = {
         death = { death_reason = death_natural_causes }
     }
 }
