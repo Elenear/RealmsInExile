@@ -91,6 +91,15 @@ lotr_on_title_destroyed = {
 # scope:previous_holder = previous holder. Might be dead
 lotr_on_title_gain = {
 	effect = {
+		if = {
+			limit = { 
+				any_maa_regiment = { is_maa_type = laamp_settler_maa }
+			}
+			random_maa_regiment = {
+				limit = { is_maa_type = laamp_settler_maa }
+				destroy_maa_regiment = yes
+			}
+		}
 		#Artifact title inheritance stuff
 		if = {
 			limit = {
@@ -435,6 +444,41 @@ lotr_on_title_gain = {
 			}
 			destroy_title = title:d_balins_expedition
 		}
+		
+		
+		### Wilderness fallback: turn illegal wilderness to Tribal if non-Tom characters somehow get ahold of it
+		
+		if = {
+			limit = {
+				scope:previous_holder ?= { is_alive = yes }
+				scope:previous_holder ?= character:k_wastelands_holder
+				OR = {
+					scope:transfer_type = flag:conquest
+					scope:transfer_type = flag:conquest_holy_war
+					scope:transfer_type = flag:conquest_claim
+					scope:transfer_type = flag:conquest_populist
+					scope:transfer_type = flag:abdication
+					scope:transfer_type = flag:usurped
+					scope:transfer_type = flag:revoked
+					scope:transfer_type = flag:faction_demand
+				}
+			}
+			root = { change_government = tribal_government }
+					scope:title ?= {
+						set_county_culture = root.culture
+						set_county_faith = root.faith
+						every_county_province = {
+							limit = { 
+								has_holding_type = wastelands_holding
+							}
+							set_holding_type = tribal_holding
+
+						}
+					}			
+			
+		}
+
+		
 		### Give title back to Tom if Tom tried to give a wastelands title away
 		if = {
 			limit = { 
@@ -661,29 +705,35 @@ lotr_on_title_gain = {
 					remove_building_any_level = { BUILDING = dwarven_toolmaker_guild }
 					remove_building_any_level = { BUILDING = dwarven_vaults }
 					remove_building_any_level = { BUILDING = dwarven_roads }
-					#remove_building_any_level = { BUILDING = dwarven_hoard }
 					remove_building_any_level = { BUILDING = dwarven_armory }
 					remove_building_any_level = { BUILDING = dwarven_hi_barracks }
 					remove_building_any_level = { BUILDING = dwarven_pike_barracks }
 					remove_building_any_level = { BUILDING = dwarven_archer_barracks }
 					remove_building_any_level = { BUILDING = dwarven_skirmisher_barracks }
-					#remove_building_any_level = { BUILDING = dwarven_siege_workshop }
-					#remove_building_any_level = { BUILDING = military_specialization }
-					#remove_building_any_level = { BUILDING = economic_specialization }
-					#remove_building_any_level = { BUILDING = glory_specialization }
-					#remove_building_any_level = { BUILDING = dwarven_bank_economic }
-					#remove_building_any_level = { BUILDING = dwarven_kings_armory_military }
-					#remove_building_any_level = { BUILDING = dwarven_grand_library }
-					#remove_building_any_level = { BUILDING = dwarven_outpost }
-					#remove_building_any_level = { BUILDING = dwarven_surface_farm }
-					#remove_building_any_level = { BUILDING = dwarven_market }
-					#remove_building_any_level = { BUILDING = dwarven_forge }
-					#remove_building_any_level = { BUILDING = dwarven_surface_workshop }
-					#remove_building_any_level = { BUILDING = dwarven_mustering_grounds }
-					#remove_building_any_level = { BUILDING = dwarven_pit_mine }
-					#remove_building_any_level = { BUILDING = dwarven_tavern }
-					#remove_building_any_level = { BUILDING = dwarven_forestry }
-					#remove_building_any_level = { BUILDING = goat_pastures }
+					remove_building_any_level = { BUILDING = dwarven_pit_mine }
+					remove_building_any_level = { BUILDING = goat_pastures }
+					
+					remove_building_any_level_max_4 = { BUILDING = dwarven_surface_workshop }
+					
+					remove_building_any_level_max_5 = { BUILDING = dwarven_hoard }
+					remove_building_any_level_max_5 = { BUILDING = dwarven_siege_workshop }
+					
+					
+					remove_building_any_level_max_6 = { BUILDING = dwarven_outpost }
+					remove_building_any_level_max_6 = { BUILDING = dwarven_surface_farm }
+					remove_building_any_level_max_6 = { BUILDING = dwarven_market }
+					remove_building_any_level_max_6 = { BUILDING = dwarven_mustering_grounds }
+					remove_building_any_level_max_6 = { BUILDING = dwarven_tavern }
+					remove_building_any_level_max_6 = { BUILDING = dwarven_forestry }
+					
+					remove_duchy_building_any_level = { BUILDING = military_specialization }
+					remove_duchy_building_any_level = { BUILDING = economic_specialization }
+					remove_duchy_building_any_level = { BUILDING = glory_specialization }
+					remove_duchy_building_any_level = { BUILDING = dwarven_bank_economic }
+					remove_duchy_building_any_level = { BUILDING = dwarven_kings_armory_military }
+					remove_duchy_building_any_level = { BUILDING = dwarven_grand_library }
+					
+					#remove_building_any_level = { BUILDING = dwarven_forge }	
 				}
 			}
 		}
@@ -1301,6 +1351,20 @@ lotr_on_title_gain = {
 				days = 7
 			}
 		}
+
+		if = {
+			limit = {
+				scope:title.tier = tier_empire
+				is_dwarven_dynast = yes
+				any_held_title = {
+					count < 1
+					NOT = { this = scope:title }
+					tier = scope:title.tier
+				}
+			}
+			trigger_event = dwarven.9810
+		}
+
 		correct_wastelands_tracker = yes
 		scope:previous_holder ?= { correct_wastelands_tracker = yes }
 	}
@@ -1395,29 +1459,30 @@ lotr_on_title_gain_inheritance = {
 					remove_building_any_level = { BUILDING = dwarven_toolmaker_guild }
 					remove_building_any_level = { BUILDING = dwarven_vaults }
 					remove_building_any_level = { BUILDING = dwarven_roads }
-					#remove_building_any_level = { BUILDING = dwarven_hoard }
 					remove_building_any_level = { BUILDING = dwarven_armory }
 					remove_building_any_level = { BUILDING = dwarven_hi_barracks }
 					remove_building_any_level = { BUILDING = dwarven_pike_barracks }
 					remove_building_any_level = { BUILDING = dwarven_archer_barracks }
 					remove_building_any_level = { BUILDING = dwarven_skirmisher_barracks }
-					#remove_building_any_level = { BUILDING = dwarven_siege_workshop }
-					#remove_building_any_level = { BUILDING = military_specialization }
-					#remove_building_any_level = { BUILDING = economic_specialization }
-					#remove_building_any_level = { BUILDING = glory_specialization }
-					#remove_building_any_level = { BUILDING = dwarven_bank_economic }
-					#remove_building_any_level = { BUILDING = dwarven_kings_armory_military }
-					#remove_building_any_level = { BUILDING = dwarven_grand_library }
-					#remove_building_any_level = { BUILDING = dwarven_outpost }
-					#remove_building_any_level = { BUILDING = dwarven_surface_farm }
-					#remove_building_any_level = { BUILDING = dwarven_market }
+					remove_building_any_level = { BUILDING = dwarven_pit_mine }
+					remove_building_any_level = { BUILDING = goat_pastures }
+					remove_building_any_level_max_4 = { BUILDING = dwarven_surface_workshop }
+					remove_building_any_level_max_5 = { BUILDING = dwarven_hoard }
+					remove_building_any_level_max_5 = { BUILDING = dwarven_siege_workshop }
+					remove_building_any_level_max_6 = { BUILDING = dwarven_outpost }
+					remove_building_any_level_max_6 = { BUILDING = dwarven_surface_farm }
+					remove_building_any_level_max_6 = { BUILDING = dwarven_market }
+					remove_building_any_level_max_6 = { BUILDING = dwarven_mustering_grounds }
+					remove_building_any_level_max_6 = { BUILDING = dwarven_tavern }
+					remove_building_any_level_max_6 = { BUILDING = dwarven_forestry }
+					remove_duchy_building_any_level = { BUILDING = military_specialization }
+					remove_duchy_building_any_level = { BUILDING = economic_specialization }
+					remove_duchy_building_any_level = { BUILDING = glory_specialization }
+					remove_duchy_building_any_level = { BUILDING = dwarven_bank_economic }
+					remove_duchy_building_any_level = { BUILDING = dwarven_kings_armory_military }
+					remove_duchy_building_any_level = { BUILDING = dwarven_grand_library }
+					
 					#remove_building_any_level = { BUILDING = dwarven_forge }
-					#remove_building_any_level = { BUILDING = dwarven_surface_workshop }
-					#remove_building_any_level = { BUILDING = dwarven_mustering_grounds }
-					#remove_building_any_level = { BUILDING = dwarven_pit_mine }
-					#remove_building_any_level = { BUILDING = dwarven_tavern }
-					#remove_building_any_level = { BUILDING = dwarven_forestry }
-					#remove_building_any_level = { BUILDING = goat_pastures }
 				}
 			}
 		}
@@ -1629,6 +1694,22 @@ lotr_on_title_gain_inheritance = {
 				}
 				root = { destroy_title = scope:title }
 			}
+		}		
+		
+		if = {
+			limit = {
+				OR = {
+					scope:title = title:e_durins_folk
+					scope:title = title:k_longbeards
+					scope:title = title:e_firebeards
+					scope:title = title:k_firebeards
+					scope:title = title:e_broadbeams
+					scope:title = title:k_broadbeams
+					scope:title = title:e_blacklocks
+					scope:title = title:k_blacklocks
+				}
+			}
+			clear_dwarven_kingdom_claims_post_game_start = yes
 		}
 		
 		correct_wastelands_tracker = yes
@@ -1701,29 +1782,35 @@ lotr_on_title_gain_usurpation = {
 					remove_building_any_level = { BUILDING = dwarven_toolmaker_guild }
 					remove_building_any_level = { BUILDING = dwarven_vaults }
 					remove_building_any_level = { BUILDING = dwarven_roads }
-					#remove_building_any_level = { BUILDING = dwarven_hoard }
 					remove_building_any_level = { BUILDING = dwarven_armory }
 					remove_building_any_level = { BUILDING = dwarven_hi_barracks }
 					remove_building_any_level = { BUILDING = dwarven_pike_barracks }
 					remove_building_any_level = { BUILDING = dwarven_archer_barracks }
 					remove_building_any_level = { BUILDING = dwarven_skirmisher_barracks }
-					#remove_building_any_level = { BUILDING = dwarven_siege_workshop }
-					#remove_building_any_level = { BUILDING = military_specialization }
-					#remove_building_any_level = { BUILDING = economic_specialization }
-					#remove_building_any_level = { BUILDING = glory_specialization }
-					#remove_building_any_level = { BUILDING = dwarven_bank_economic }
-					#remove_building_any_level = { BUILDING = dwarven_kings_armory_military }
-					#remove_building_any_level = { BUILDING = dwarven_grand_library }
-					#remove_building_any_level = { BUILDING = dwarven_outpost }
-					#remove_building_any_level = { BUILDING = dwarven_surface_farm }
-					#remove_building_any_level = { BUILDING = dwarven_market }
+					remove_building_any_level = { BUILDING = dwarven_pit_mine }
+					remove_building_any_level = { BUILDING = goat_pastures }
+					
+					remove_building_any_level_max_4 = { BUILDING = dwarven_surface_workshop }
+					
+					remove_building_any_level_max_5 = { BUILDING = dwarven_hoard }
+					remove_building_any_level_max_5 = { BUILDING = dwarven_siege_workshop }
+					
+					
+					remove_building_any_level_max_6 = { BUILDING = dwarven_outpost }
+					remove_building_any_level_max_6 = { BUILDING = dwarven_surface_farm }
+					remove_building_any_level_max_6 = { BUILDING = dwarven_market }
+					remove_building_any_level_max_6 = { BUILDING = dwarven_mustering_grounds }
+					remove_building_any_level_max_6 = { BUILDING = dwarven_tavern }
+					remove_building_any_level_max_6 = { BUILDING = dwarven_forestry }
+					
+					remove_duchy_building_any_level = { BUILDING = military_specialization }
+					remove_duchy_building_any_level = { BUILDING = economic_specialization }
+					remove_duchy_building_any_level = { BUILDING = glory_specialization }
+					remove_duchy_building_any_level = { BUILDING = dwarven_bank_economic }
+					remove_duchy_building_any_level = { BUILDING = dwarven_kings_armory_military }
+					remove_duchy_building_any_level = { BUILDING = dwarven_grand_library }
+					
 					#remove_building_any_level = { BUILDING = dwarven_forge }
-					#remove_building_any_level = { BUILDING = dwarven_surface_workshop }
-					#remove_building_any_level = { BUILDING = dwarven_mustering_grounds }
-					#remove_building_any_level = { BUILDING = dwarven_pit_mine }
-					#remove_building_any_level = { BUILDING = dwarven_tavern }
-					#remove_building_any_level = { BUILDING = dwarven_forestry }
-					#remove_building_any_level = { BUILDING = goat_pastures }
 				}
 			}
 		}
@@ -1889,6 +1976,24 @@ lotr_on_title_lost = {
 					add_trait = balan_lai_member
 				}
 			}
+		}
+
+		if = {
+			limit = {
+				scope:title.tier = tier_empire
+				any_held_title = {
+					count = 1
+					tier = tier_empire
+					NOT = { this = scope:title }
+				}
+				OR = {
+					has_title = title:e_durins_folk
+					has_title = title:e_firebeards
+					has_title = title:e_broadbeams
+					has_title = title:e_blacklocks
+				}
+			}
+			trigger_event = dwarven.9820
 		}
 	}
 }

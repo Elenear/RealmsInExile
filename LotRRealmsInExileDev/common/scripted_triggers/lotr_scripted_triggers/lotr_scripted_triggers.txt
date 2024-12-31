@@ -130,6 +130,15 @@ lotr_can_become_admin_gov = { # Trigger that checks wether the char should be ab
 	}
 }
 
+lotr_numenor_trigger = {
+	OR = {
+		has_cultural_pillar = heritage_dunedain
+		has_cultural_pillar = heritage_bellakari
+		has_cultural_pillar = heritage_northern_adunaic
+		has_cultural_pillar = heritage_southern_adunaic
+	}
+}
+
 lotr_numenor_culture_trigger = {
 	OR = {
 		culture = { has_cultural_pillar = heritage_dunedain }
@@ -1991,6 +2000,15 @@ tom_holds_erebor = {
 	}
 }
 
+is_dwarven_dynast = {
+	OR = {
+		dynasty:dynasty_durin.dynast = root
+		dynasty:dynasty_dwalin.dynast = root
+		dynasty:dynasty_uri.dynast = root
+		dynasty:dynasty_thrar.dynast = root
+	}
+}
+
 ##########################
 ### Diplomacy Triggers ###
 ##########################
@@ -2027,4 +2045,7 @@ has_numenorean_trait = {
 	}
 }
 
-realms_achievements_enabled = { debug_only = no }
+realms_achievements_enabled = {
+	debug_only = no
+	any_player = { count < 2 }
+}

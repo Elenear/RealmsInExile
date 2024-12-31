@@ -15001,7 +15001,6 @@ linefroderik10 = {
     6785.9.17 = {
         death = {
             death_reason = death_raid
-            killer = 
         }
     }
 }
@@ -18789,7 +18788,7 @@ lineprebeorn24 = {
 }
 
 lineprebeorn25 = {
-    name = Jarbeorn
+    name = Haed
 
     dynasty = dynasty_haeding
     religion = faith_woodmen

@@ -1910,6 +1910,7 @@ d_maegond = {
     # }
     6815.4.13 = { #Ascent of the Ûdo
         holder = lineudo21 
+		liege = k_nurn
     }
     6841.12.25 = {
         holder = lineudo25 

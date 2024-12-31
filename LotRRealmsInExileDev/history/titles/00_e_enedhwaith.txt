@@ -443,7 +443,6 @@ c_lond_angren = {
 	6930.6.26 = {
         holder = fillerdunlogan1 #Llotendil
 		change_development_level = 4
-		government = feudal_government
 		liege = 0
     }
     7005.9.11 = {
@@ -647,10 +646,14 @@ d_runnach = {
 	5536.11.10 = {
 		holder = linetrumbold17
 	}
-	6922.1.1 = { # Devastating floods depopulate most of enedwaith/cardolan 
-		holder = 0
+	5538.6.28 = {
+        holder = 0
 		liege = 0
-	}
+    }
+	#6922.1.1 = { # Devastating floods depopulate most of enedwaith/cardolan 
+		#holder = 0
+		#liege = 0
+	#}
 }
 c_den_runnach = {
 	5155.1.20 = {
@@ -921,7 +924,7 @@ k_dunland = {
 	6791.12.13 = { # Wulf's realm extent (Kingdom of Dunland)
 		holder = lineoffreca3
 	}
-	6792.7.5 = {
+	6792.4.5 = {
 		holder = lineoffreca5
 	}
 	6852.9.23 = {
@@ -976,7 +979,7 @@ d_dunlandfells = {
 	6791.12.13 = { # Wulf's realm extent (Kingdom of Dunland)
 		holder = lineoffreca3
 	}
-	6792.7.5 = {
+	6792.4.5 = {
 		holder = lineoffreca5
 	}
 	6852.9.23 = {
@@ -1036,7 +1039,7 @@ c_frecalund = {
 		holder = lineoffreca3
 		name = c_frecalund
 	}
-	6792.7.5 = {
+	6792.4.5 = {
 		holder = lineoffreca5
 	}
 	6852.9.23 = {
@@ -1163,7 +1166,7 @@ c_earcnoc = {
 		holder = lineoffreca3
 		change_development_level = 8
 	}
-	6792.7.5 = {
+	6792.4.5 = {
 		holder = lineoffreca5
 	}
 	6852.9.23 = {
@@ -1583,17 +1586,17 @@ c_chailcaerdh = {
     6661.12.6 = {
         holder = lineurthain44 #Rodryr
     }
+    6667.6.18 = {
+        holder = lineurthain46 #Nilyn
+    }
     6708.12.19 = {
-        holder = lineurthain46 #Beulayn
+        holder = lineurthain48 #Beulayn
     }
-    6729.11.1 = {
-        holder = lineurthain48 #Rlain
+    6729.11.1 = { # Later slain by Frealaf
+        holder = lineurthain50 #Rlain
     }
-    6773.12.3 = { # Later slain by Frealaf
-        holder = lineurthain50 #Cerith
-    }
-	6792.8.30 = { # Dunlendings take over Isengard
-        holder = lineurthain52 #Nilyn
+	6773.12.3 = { # Dunlendings take over Isengard
+        holder = lineurthain52 #Cerith
     }
     6792.11.1 = { # Isengard is taken by Rohan, Aynsar flees to Dunfearn
         holder = lineurthain54 #Aynsar
@@ -1726,7 +1729,7 @@ d_dathabha = {
 	6789.2.15 = { # Wulf
 		holder = lineoffreca3
 	}
-	6792.7.5 = {
+	6792.4.5 = {
 		holder = lineoffreca5
 	}
 	6852.9.23 = {
@@ -2039,7 +2042,7 @@ k_isengard = {
 	6791.12.13 = { # Wulf's realm extent (Kingdom of Dunland)
 		holder = lineoffreca3
 	}
-	6792.7.5 = {
+	6792.4.5 = {
 		holder = 0
 	}
 }
@@ -2510,6 +2513,7 @@ c_an_khorgan = {
 c_byrig = {	
 	5244.9.18 = {
 		holder = linehelunn1
+		change_development_level = 4
 	}
 	5295.8.14 = {
 		liege = d_druwaith_iaur
@@ -2785,7 +2789,6 @@ c_tharadorn = {
     }
 	6979.3.10 = {
 		holder = lineofwulfdening1		# Wulfdene, king of the Wulfdenings.
-		government = feudal_government
 		liege = 0
 	}
 	6990.1.1 = {			
@@ -2822,7 +2825,7 @@ d_westmarches = {
 	6787.2.15 = { # Wulf
 		holder = lineoffreca3
 	}
-	6792.7.5 = {
+	6792.4.5 = {
 		holder = lineoffreca5
 	}
 	6852.9.23 = {
@@ -2891,7 +2894,7 @@ c_westmarches = {
 		holder = lineoffreca3
 	}
 	6792.1.17 = { change_development_level = 9 } # Wulf invests in the Westmarches
-	6792.7.5 = {
+	6792.4.5 = {
 		holder = lineoffreca5
 	}
 	6852.9.23 = {
@@ -2960,7 +2963,7 @@ c_emyndunendor = {
 	6787.2.15 = { # Wulf
 		holder = lineoffreca3
 	}
-	6792.7.5 = {
+	6792.4.5 = {
 		holder = lineoffreca5
 	}
 	6852.9.23 = {

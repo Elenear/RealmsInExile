@@ -1172,6 +1172,42 @@ lotr_intro_events.5507 = { # Introduction to the Lord of the Nazgûl - Long Wint
 	
 	option = { 
 		name = lotr_intro_events.5507.a
+		trigger = { is_ai = no }
+		trigger_event = {
+			id = mordor.1000
+			days = 10
+		}
+	}
+	option = {
+		name = lotr_intro_events.5507.a
+		trigger = { is_ai = yes }
+		trigger_event = {
+			id = mordor.1004
+			years = 200
+		}
+	}
+}
+
+lotr_intro_events.5508 = { # Introduction to the Lord of the Nazgûl - Long Winter 
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.5508.t
+	desc = lotr_intro_events.5508.desc
+	theme = martial_strategy_focus
+	override_background = {
+		reference = throne_room_evil
+	}
+	left_portrait = {
+		character = root
+		animation = menacing
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_nazgul
+	}
+	
+	option = { 
+		name = lotr_intro_events.5508.a
 	}
 }
 
@@ -1395,9 +1431,9 @@ lotr_intro_events.6007 = { # Introduction to Chieftain Arassuil - Start Date
 	option = { # I shall take up the defence of Eriador
 		name = lotr_intro_events.6007.a
 		#custom_tooltip = lotr_intro_events.6007.a.tt
-		house = {
-			add_house_modifier = heirs_of_isildur_modifier #FOR TESTING PURPOSES ONLY, DON'T FORGET TO REMOVE LATER AERIEN
-		}
+		# house = {
+			# add_house_modifier = heirs_of_isildur_modifier #no more cheating, boys
+		# }
 		title:e_arnor = { # Every landed Dunedain Ranger in Arnor gets the chance to swear fealty.
 			every_de_jure_county_holder = {
 				limit = {
@@ -2180,9 +2216,47 @@ lotr_intro_events.6701 = { # Introduction to Bain of Dale
 		title:k_dale.holder = {
 			trigger_event = { # The council of Dale
 				id = dale.0001
-				days = 30
+				days = 20
 			}
 		}
+	}
+}
+
+lotr_intro_events.6702 = { # Introduction to Lord Girnir of Dale ~ LW
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6702.t
+	desc = lotr_intro_events.6702.desc
+	theme = stewardship
+	override_background = {
+		reference = market_west
+	}
+	right_portrait = {
+		character = root
+		animation = interested
+	}
+	
+	option = { # Let the trade flow!
+		name = lotr_intro_events.6702.a
+	}
+}
+
+lotr_intro_events.6703 = { # Introduction to Realm-master Lindor of Dorwinion ~ LW
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6703.t
+	desc = lotr_intro_events.6703.desc
+	theme = diplomacy_majesty_focus
+	override_background = {
+		reference = market_west
+	}
+	right_portrait = {
+		character = root
+		animation = happiness
+	}
+	
+	option = { # Our traditions are maintained!
+		name = lotr_intro_events.6703.a
 	}
 }
 
@@ -2335,6 +2409,25 @@ lotr_intro_events.6806 = { #Introduction to Fariyin/Gusar/Tandi rulers
 	option = { # Zajantak shall be restored
 		name = lotr_intro_events.6806.b
 		add_prestige = 100
+	}
+}
+
+lotr_intro_events.6807 = { # Introduction to King Bogho of Darsalan ~ LW
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6807.t
+	desc = lotr_intro_events.6807.desc
+	theme = diplomacy_majesty_focus
+	override_background = {
+		reference = throne_room
+	}
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	option = { # There is a tempest in me...
+		name = lotr_intro_events.6807.a
 	}
 }
 
@@ -2537,18 +2630,28 @@ lotr_intro_events.7006 = { # Introduction to Bountig Medlokan (provided by disco
     desc = lotr_intro_events.7006.desc
     theme = martial_strategy_focus
     override_background = {
-        reference = throne_room_tribal
+        reference = wilderness_steppe
     }
+
+	widgets = {
+		widget = {
+			gui = "lotr_shader_event_sparks"
+			container = "lotr_shader_event_foreground"
+		}
+		widget = {
+			gui = "lotr_shader_event_fire"
+			container = "lotr_shader_event_background"
+		}
+	}
     left_portrait = {
         character = root
-        animation = personality_bold
+        animation = pain
     }
 
     option = { # Canonical Route
         name = lotr_intro_events.7006.a
-
+		set_variable = lotr_story_content
 		create_story = story_cycle_bountig_medlokan
-		set_variable = bountig_start_story
 
 		ai_chance = {
 			base = 30 # LotR: This should be tied to WotR mode.
@@ -2569,6 +2672,8 @@ lotr_intro_events.7006 = { # Introduction to Bountig Medlokan (provided by disco
 
     option = { # Non-Canonical Route
         name = lotr_intro_events.7006.b
+		save_scope_as = bountig
+		custom_tooltip = lotr_intro_events.7006.b.tt
 		ai_chance = {
 			base = 0 # LotR: This should be tied to WotR mode.
 			modifier = { # Game Rule
@@ -2795,6 +2900,23 @@ lotr_intro_events.7403 = { # Introduction to Aglarin of Narik-Zadan
 	}
 }
 
+lotr_intro_events.7404 = { # Introduction to the Fleet of Shadows
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7404.t
+	desc = lotr_intro_events.7404.desc
+	theme = sailing_activity
+	override_background = { reference = black_ship }
+	right_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	
+	option = { # The Sacred Isles will be mine
+		name = lotr_intro_events.7404.a
+	}
+}
+
 ### Thani-Hazad ###
 
 lotr_intro_events.7501 = { # Introduction to Balâkhân
@@ -2849,7 +2971,6 @@ lotr_intro_events.7502 = { # Introduction to the Storm-host
 				type = ephalzagar_an_adunai
 				stacks = 10
 			}
-
 			men_at_arms = {
 				type = zagar_an_adunai
 				stacks = 10
@@ -3218,6 +3339,22 @@ lotr_intro_events.7800 = { # Introduction to Hussamadin of Harwan
 	option = { 
 		name = lotr_intro_events.7800.a
 		custom_tooltip = lotr_intro_events.7800.tt
+		add_character_modifier = {
+			modifier = lotr_preparing_the_fleets_modifier
+			years = 15
+		}
+		if = {
+			limit = { 
+				is_ai = yes 
+			}
+			hidden_effect = {
+				add_truce_both_ways = { 
+					character = title:e_gondor_steward.holder
+					years = 4
+					name = TRUCE_GONDOR_MORDOR
+				}
+			}
+		}
 	}
 }
 
@@ -3237,5 +3374,102 @@ lotr_intro_events.7801 = { # Introduction to Arunaru of Umbar
 	option = { 
 		name = lotr_intro_events.7801.a
 		custom_tooltip = lotr_intro_events.7800.tt
+		add_character_modifier = {
+			modifier = lotr_preparing_the_fleets_modifier
+			years = 15
+		}
+	}
+}
+
+lotr_intro_events.7802 = { # Introduction to Radovân Masamâvin of Ûsakan
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7802.t
+	desc = lotr_intro_events.7802.desc
+	theme = crown
+	override_background = {
+		reference = wilderness_forest
+	}
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	option = { 
+		name = lotr_intro_events.7802.a
+	}
+}
+
+lotr_intro_events.7803 = { # Introduction to Farisi Musanes, Bandit in Usakan
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7803.t
+	desc = lotr_intro_events.7803.desc
+	theme = intrigue
+	override_background = {
+		reference = alley_day 
+	}
+	left_portrait = {
+		character = root
+		animation = personality_greedy 
+	}
+	option = { 
+		name = lotr_intro_events.7803.a
+	}
+	option = {
+		name = lotr_intro_events.7803.b #Make Laamp
+	}
+}
+
+lotr_intro_events.7804 = { # Introduction to Rhukar of Wariga, quarreling orc brother
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7804.t
+	desc = lotr_intro_events.7804.desc
+	theme = war
+	override_background = {
+		reference = throne_room_tribal 
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	option = { 
+		name = lotr_intro_events.7804.a
+	}
+}
+
+lotr_intro_events.7805 = { # Introduction to Radnu of Wariga, quarreling orc brother
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7805.t
+	desc = lotr_intro_events.7805.desc
+	theme = war
+	override_background = {
+		reference = battlefield 
+	}
+	left_portrait = {
+		character = root
+		animation = aggressive_hammer
+	}
+	option = { 
+		name = lotr_intro_events.7805.a
+	}
+}
+
+lotr_intro_events.7806 = { # Introduction to Radzag of Wariga, quarreling orc brother
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7806.t
+	desc = lotr_intro_events.7806.desc
+	theme = intrigue
+	override_background = {
+		reference = alley_night
+	}
+	left_portrait = {
+		character = root
+		animation = personality_vengeful 
+	}
+	option = { 
+		name = lotr_intro_events.7806.a
 	}
 }
