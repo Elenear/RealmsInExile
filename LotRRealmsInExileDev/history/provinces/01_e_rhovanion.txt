@@ -1915,11 +1915,13 @@
 	culture = dorwinionrim
 	religion = faith_dorwinion
 	holding = castle_holding
-	6779.1.1 = {
+	special_building_slot = wonder_aldena
+	special_building = wonder_aldena
+	6791.1.1 = {
 		buildings = {
 			castle_02
-			curtain_walls_03
-			farm_estates_03
+			cereal_fields_02
+			orchards_03
 		}
 	}
 }
