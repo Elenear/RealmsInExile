@@ -5586,7 +5586,7 @@ lotr_thani_hazad.9000 = { # Handling event to see which inheritance event to fir
 					culture = culture:kharadunaim
 					culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
 				}
-				NOT = { exists = struggle:thani_hazad_struggle }
+				
 				NOT = { has_trait = balan_lai_member }
 				is_landed = yes
 				highest_held_title_tier > tier_barony
@@ -5617,7 +5617,7 @@ lotr_thani_hazad.9000 = { # Handling event to see which inheritance event to fir
 							culture = culture:kharadunaim
 							culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
 						}
-						NOT = { exists = struggle:thani_hazad_struggle }
+						
 						NOT = { has_trait = balan_lai_member }
 						is_landed = yes
 						highest_held_title_tier > tier_barony
@@ -5643,7 +5643,7 @@ lotr_thani_hazad.9000 = { # Handling event to see which inheritance event to fir
 							culture = culture:kharadunaim
 							culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
 						}
-						NOT = { exists = struggle:thani_hazad_struggle }
+						
 						NOT = { has_trait = balan_lai_member }
 						is_landed = yes
 						highest_held_title_tier > tier_barony
@@ -5671,7 +5671,7 @@ lotr_thani_hazad.9000 = { # Handling event to see which inheritance event to fir
 				}
 			}
 			alternative_limit = {
-				NOT = { exists = struggle:thani_hazad_struggle }
+				
 				scope:former_member = {
 					any_close_or_extended_family_member = {
 						OR = { # Kharadunaim or Kharadunaim-descendant
@@ -5705,7 +5705,7 @@ lotr_thani_hazad.9000 = { # Handling event to see which inheritance event to fir
 						}
 						is_landed = yes
 						highest_held_title_tier > tier_barony
-						NOT = { exists = struggle:thani_hazad_struggle }
+						
 						NOT = { has_trait = balan_lai_member }
 						trigger_if = {
 							limit = { exists = title:e_thani_hazad.holder }
