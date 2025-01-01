@@ -5567,6 +5567,19 @@ lotr_thani_hazad.3035 = { # Reaction event for Seregul or his successor
 #####################################
 ##### Balan-lai mechanic events #####
 
+scripted_trigger kharadunaim_culture_trigger = {
+	OR = { # Kharadunaim or Kharadunaim-descendant
+		culture = culture:kharadunaim
+		culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
+	}
+}
+
+scripted_trigger is_landed_but_vassalised_trigger = {
+	NOT = { has_trait = balan_lai_member }
+	is_landed = yes
+	highest_held_title_tier > tier_barony
+}
+
 lotr_thani_hazad.9000 = { # Handling event to see which inheritance event to fire
 	hidden = yes
 	scope = none
@@ -5574,22 +5587,13 @@ lotr_thani_hazad.9000 = { # Handling event to see which inheritance event to fir
 	immediate = {
 		if = { # Check the me as primary heir
 			limit = {
-				OR = { # Kharadunaim or Kharadunaim-descendant
-					culture = culture:kharadunaim
-					culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
-				}
+				kharadunaim_culture_trigger = yes
 				is_independent_ruler = yes
 				NOT = { has_trait = balan_lai_member }
 			}
 			alternative_limit = {
-				OR = { # Kharadunaim or Kharadunaim-descendant
-					culture = culture:kharadunaim
-					culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
-				}
-				
-				NOT = { has_trait = balan_lai_member }
-				is_landed = yes
-				highest_held_title_tier > tier_barony
+				kharadunaim_culture_trigger = yes
+				is_landed_but_vassalised_trigger = yes
 				trigger_if = {
 					limit = { exists = title:e_thani_hazad.holder }
 					title:e_thani_hazad = { has_title_law = balan_lai_elective_succession_law }
@@ -5601,10 +5605,7 @@ lotr_thani_hazad.9000 = { # Handling event to see which inheritance event to fir
 			limit = {
 				scope:former_member = {
 					any_child = {
-						OR = { # Kharadunaim or Kharadunaim-descendant
-							culture = culture:kharadunaim
-							culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
-						}
+						kharadunaim_culture_trigger = yes
 						is_independent_ruler = yes
 						NOT = { has_trait = balan_lai_member }
 					}
@@ -5613,14 +5614,8 @@ lotr_thani_hazad.9000 = { # Handling event to see which inheritance event to fir
 			alternative_limit = {
 				scope:former_member = {
 					any_child = {
-						OR = { # Kharadunaim or Kharadunaim-descendant
-							culture = culture:kharadunaim
-							culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
-						}
-						
-						NOT = { has_trait = balan_lai_member }
-						is_landed = yes
-						highest_held_title_tier > tier_barony
+						kharadunaim_culture_trigger = yes
+						is_landed_but_vassalised_trigger = yes
 					}
 				}
 				trigger_if = {
@@ -5631,22 +5626,13 @@ lotr_thani_hazad.9000 = { # Handling event to see which inheritance event to fir
 			scope:former_member = {
 				ordered_child = {
 					limit = {
-						OR = { # Kharadunaim or Kharadunaim-descendant
-							culture = culture:kharadunaim
-							culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
-						}
+						kharadunaim_culture_trigger = yes
 						is_independent_ruler = yes
 						NOT = { has_trait = balan_lai_member }
 					}
 					alternative_limit = {
-						OR = { # Kharadunaim or Kharadunaim-descendant
-							culture = culture:kharadunaim
-							culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
-						}
-						
-						NOT = { has_trait = balan_lai_member }
-						is_landed = yes
-						highest_held_title_tier > tier_barony
+						kharadunaim_culture_trigger = yes
+						is_landed_but_vassalised_trigger = yes
 						trigger_if = {
 							limit = { exists = title:e_thani_hazad.holder }
 							title:e_thani_hazad = { has_title_law = balan_lai_elective_succession_law }
@@ -5661,26 +5647,17 @@ lotr_thani_hazad.9000 = { # Handling event to see which inheritance event to fir
 			limit = {
 				scope:former_member = {
 					any_close_or_extended_family_member = {
-						OR = { # Kharadunaim or Kharadunaim-descendant
-							culture = culture:kharadunaim
-							culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
-						}
+						kharadunaim_culture_trigger = yes
 						is_independent_ruler = yes
 						NOT = { has_trait = balan_lai_member }
 					}
 				}
 			}
 			alternative_limit = {
-				
 				scope:former_member = {
 					any_close_or_extended_family_member = {
-						OR = { # Kharadunaim or Kharadunaim-descendant
-							culture = culture:kharadunaim
-							culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
-						}
-						NOT = { has_trait = balan_lai_member }
-						is_landed = yes
-						highest_held_title_tier > tier_barony
+						kharadunaim_culture_trigger = yes
+						is_landed_but_vassalised_trigger = yes
 					}
 				}
 				trigger_if = {
@@ -5691,22 +5668,14 @@ lotr_thani_hazad.9000 = { # Handling event to see which inheritance event to fir
 			scope:former_member = {
 				ordered_close_or_extended_family_member = {
 					limit = {
-						OR = { # Kharadunaim or Kharadunaim-descendant
-							culture = culture:kharadunaim
-							culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
-						}
+						kharadunaim_culture_trigger = yes
 						is_independent_ruler = yes
 						NOT = { has_trait = balan_lai_member }
 					}
 					alternative_limit = {
-						OR = { # Kharadunaim or Kharadunaim-descendant
-							culture = culture:kharadunaim
-							culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
-						}
-						is_landed = yes
-						highest_held_title_tier > tier_barony
-						
-						NOT = { has_trait = balan_lai_member }
+						kharadunaim_culture_trigger = yes
+						is_landed_but_vassalised_trigger = yes
+
 						trigger_if = {
 							limit = { exists = title:e_thani_hazad.holder }
 							title:e_thani_hazad = { has_title_law = balan_lai_elective_succession_law }
@@ -5714,6 +5683,80 @@ lotr_thani_hazad.9000 = { # Handling event to see which inheritance event to fir
 					}
 					order_by = age
 					save_scope_as = new_member
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				NOT = { exists = scope:new_member }
+			}
+			if = { # Check the me as primary heir
+				limit = {
+					kharadunaim_culture_trigger = yes
+					is_landed_but_vassalised_trigger = yes
+					trigger_if = {
+						limit = { exists = title:e_thani_hazad.holder }
+						title:e_thani_hazad = { has_title_law = balan_lai_elective_succession_law }
+					}
+				}
+				save_scope_as = new_member
+			}
+			else_if = { # Check the former member's children
+				limit = {
+					scope:former_member = {
+						any_child = {
+							kharadunaim_culture_trigger = yes
+							is_landed_but_vassalised_trigger = yes
+						}
+					}
+					trigger_if = {
+						limit = { exists = title:e_thani_hazad.holder }
+						title:e_thani_hazad = { has_title_law = balan_lai_elective_succession_law }
+					}
+				}
+				scope:former_member = {
+					ordered_child = {
+						limit = {
+							kharadunaim_culture_trigger = yes
+							is_landed_but_vassalised_trigger = yes
+							trigger_if = {
+								limit = { exists = title:e_thani_hazad.holder }
+								title:e_thani_hazad = { has_title_law = balan_lai_elective_succession_law }
+							}
+						}
+						order_by = age
+						save_scope_as = new_member
+					}
+				}
+			}
+			else_if = { # Check the former member's extended family
+				limit = {
+					scope:former_member = {
+						any_close_or_extended_family_member = {
+							kharadunaim_culture_trigger = yes
+							is_landed_but_vassalised_trigger = yes
+						}
+					}
+					trigger_if = {
+						limit = { exists = title:e_thani_hazad.holder }
+						title:e_thani_hazad = { has_title_law = balan_lai_elective_succession_law }
+					}
+				}
+				scope:former_member = {
+					ordered_close_or_extended_family_member = {
+						limit = {
+							kharadunaim_culture_trigger = yes
+							is_landed_but_vassalised_trigger = yes
+
+							trigger_if = {
+								limit = { exists = title:e_thani_hazad.holder }
+								title:e_thani_hazad = { has_title_law = balan_lai_elective_succession_law }
+							}
+						}
+						order_by = age
+						save_scope_as = new_member
+					}
 				}
 			}
 		}
