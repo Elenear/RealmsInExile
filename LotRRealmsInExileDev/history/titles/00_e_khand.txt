@@ -2611,9 +2611,11 @@ c_trijha = {
 	}
 	6777.1.1 = {
 		holder = lineofrok2
+		liege = 0
 	}
 	6787.1.1 = {
 		holder = lineofrok1		    # Sia
+		liege = 0
 	}
 	6857.2.9 = {
         holder = lineofsafares1 #Safar
@@ -2641,6 +2643,7 @@ c_datmen = {
 	}
 	6787.1.1 = {
 		holder = lineofzha1 # Raydahn the Unruly
+		liege = 0
 	}
 	6857.2.9 = {
         holder = lineofsafares1 #Safar
